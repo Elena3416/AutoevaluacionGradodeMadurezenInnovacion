@@ -1,0 +1,26 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary">
+    <a class="navbar-brand" href="#">
+      <img [src]=imagen alt="logo" />
+      <h2>{{Titulo}}</h2>
+    </a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li routerLinkActive="active" class="nav-item">
+          <mat-icon>home</mat-icon>
+          <a class="nav-link" routerLink="paginainicial">{{PaginaInicial}}</a>
+        </li>
+        <li routerLinkActive="active" class="nav-item">
+          <mat-icon>account_circle</mat-icon>
+          <a class="nav-link" routerLink="registrarusuario">{{RegistroUsuario}}</a>
+        </li>
+        <li routerLinkActive="active" class="nav-item">
+          <mat-icon>exit_to_app</mat-icon>
+          <a class="nav-link" routerLink="iniciarsesion">{{InicioSesion}}</a>
+        </li>
+        <li routerLinkActive="active" class="nav-item">
+          <mat-icon>person</mat-icon>
+          <a class="nav-link" routerLink="contacto">{{Contacto}}</a>
+        </li>
+      </ul>
+    </div>
+</nav>
