@@ -1,0 +1,28 @@
+footer{
+    display: flex;
+    box-flex: row wrap;
+    padding-left:20%;
+
+   }
+   
+   footer > div > mat-icon{
+     position: relative;
+     top:7px;
+   }
+   
+   .sociales{
+     width: 50%;
+     margin-top: 2%;
+     margin-left: 10%;
+   }
+   
+   .sociales > a > i{
+     font-size: 18px;
+     color:  rgb(4, 100, 117);
+     margin-left: 4%;
+     padding-bottom: 1%;
+   }
+   
+   .sociales > a > i:hover{
+       color: brown;
+   }

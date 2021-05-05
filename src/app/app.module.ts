@@ -7,17 +7,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule } from "@angular/material/icon";
 import { PaginaInicialComponent } from './Component/pagina-inicial/pagina-inicial.component';
+import { FooterComponent } from './Component/footer/footer.component';
+
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    PaginaInicialComponent
+    PaginaInicialComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
