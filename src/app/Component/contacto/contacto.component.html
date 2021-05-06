@@ -1,0 +1,98 @@
+<h1>{{Contacto}}</h1>
+<img src="./../../../assets/IMG/Agroalim.png" alt="frescosdelvalle" />
+<div class="contacto">
+<div class="form">
+<form action="" [formGroup]="formulario">
+  <div class="form-group">
+    <label for="">{{Correo}}</label>
+    <input type="text"
+      class="form-control" id="" aria-describedby="helpId" 
+      [ngClass]="{
+        'is-valid': Validarform('Email').error == false,
+        'is-invalid': Validarform('Email').error == true
+      }"
+      formControlName="Email"
+      placeholder="Ingresa un correo electrónico">
+  </div>
+  <div *ngIf="Validarform('Email').error"
+      class="invalid-feedback d-block mb-3 text-center"
+      style="font-size: 15px; color: #000;"
+      >
+        {{Validarform('Email').message}}
+  </div>
+  <div class="form-group" [formGroup]="formulario">
+    <label for="">{{Asunto}}</label>
+    <input
+      type="text"
+      class="form-control"
+      id=""
+      aria-describedby="helpId"
+      [ngClass]="{
+        'is-valid': Validarform('asunto').error == false,
+        'is-invalid': Validarform('asunto').error == true
+      }"
+      formControlName="asunto"
+      placeholder="Ingresa la situación del correo"
+    />
+  </div>
+  <div *ngIf="Validarform('asunto').error"
+  class="invalid-feedback d-block mb-3 text-center"
+  style="font-size: 15px; color: #000;"
+  >
+    {{Validarform('asunto').message}}
+</div>
+  <div class="form-group" [formGroup]="formulario">
+    <label for="">{{Mensaje}}</label>
+    <textarea class="form-control"
+    id="" rows="3"
+    [ngClass]="{
+      'is-valid': Validarform('Mensaje').error == false,
+      'is-invalid': Validarform('Mensaje').error == true
+    }"
+    formControlName="Mensaje"
+    ></textarea>
+  </div>
+  <div *ngIf="Validarform('Mensaje').error"
+  class="invalid-feedback d-block mb-3 text-center"
+  style="font-size: 15px; color: #000;"
+  >
+    {{Validarform('Mensaje').message}}
+</div>
+  <button
+    [disabled]="formulario.invalid"
+    type="button"
+    name=""
+    id=""
+    class="btn btn-primary btn-lg btn-block"
+  >
+    {{EnviarMensaje}}
+  </button>
+</form>
+</div>
+<div class="texto">
+  <p>{{informacion}}</p>
+  <p class="ml-5">{{correo}}</p>
+  <p class="ml-5">{{telefono}}</p>
+</div>
+</div>
+<div class="mapa">
+<iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.8034493463956!2d-100.28172248566366!3d25.611446721055565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662be2a28d8389b%3A0x17a27784412d6e3!2sCluster%20Agroalim%20de%20Nuevo%20Le%C3%B3n!5e0!3m2!1sen!2smx!4v1619664412952!5m2!1sen!2smx"
+  width="1300"
+  height="450"
+  style="border: 0"
+  allowfullscreen=""
+  loading="lazy"
+></iframe>
+</div>
+<div class="imagen">
+<img src="./../../../assets/IMG/Frescos-Del-Valle.png" alt="">
+</div>
+<div class="sociales">
+<h2>{{RedesSociales}}</h2>
+<a href="https://agroalim.org/"><i class="fa fa-internet-explorer" aria-hidden="true"></i></a>
+<a href="https://mx.linkedin.com/company/clusteragroalim"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+<a href="https://www.youtube.com/channel/UC_0G4KUsMPKfF3LpZCpL1rQ"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+<a href="https://www.instagram.com/agroalim/?hl=es"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+<a href="https://es-la.facebook.com/Clusteragroalimentario/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+</div>

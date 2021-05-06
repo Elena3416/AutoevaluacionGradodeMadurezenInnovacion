@@ -1,0 +1,42 @@
+h1{
+    margin-top: 10%;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-size: 30px;
+    font-weight: 700;
+  }
+  
+  .form{
+    width: 50%;
+    height:100%;
+    margin: 3% auto;
+  }
+  
+  mat-icon{
+    font-size: 25px;
+    position: relative;
+    top: 7px;
+    color: rgb(0, 0, 0);
+  }
+  
+  label{
+    color: rgb(15, 15, 15);
+    font-size: 17px;
+    margin: 3% 1%;
+  }
+  
+  input{
+    border: 2px solid #3E5151;
+    background: #6c9191;
+    border-radius: 10px;
+  }
+  
+  input::placeholder{
+    color: #000;
+  }
+  
+  button{
+    border-radius: 10px;
+    margin-top: 5%;
+  }  
