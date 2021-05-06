@@ -18,6 +18,7 @@ export class RegistrarUsuarioComponent implements OnInit {
   public FechaNacimiento:string = "Ingresa tu Fecha Nacimiento:";
   public PuestoPerteneceEmpresa:string = "Selecciona el puesto de la empresa a la que perteneces:";
   public ButtonRegUsuario:string = "Registrar Usuario";
+  public Condiciones:string = "Aceptar Términos y condiciones";
 
   constructor() { }
 

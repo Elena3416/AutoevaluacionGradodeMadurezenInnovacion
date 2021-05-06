@@ -1,5 +1,5 @@
 <h1>{{Contacto}}</h1>
-<img src="./../../../assets/IMG/Agroalim.png" alt="frescosdelvalle" />
+<img [src]="Imagen1" alt="frescosdelvalle" />
 <div class="contacto">
 <div class="form">
 <form action="" [formGroup]="formulario">
@@ -50,6 +50,7 @@
       'is-invalid': Validarform('Mensaje').error == true
     }"
     formControlName="Mensaje"
+    placeholder="Ingresa tu mensaje"
     ></textarea>
   </div>
   <div *ngIf="Validarform('Mensaje').error"
@@ -78,15 +79,14 @@
 <div class="mapa">
 <iframe
   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.8034493463956!2d-100.28172248566366!3d25.611446721055565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662be2a28d8389b%3A0x17a27784412d6e3!2sCluster%20Agroalim%20de%20Nuevo%20Le%C3%B3n!5e0!3m2!1sen!2smx!4v1619664412952!5m2!1sen!2smx"
-  width="1300"
+  width="1290"
   height="450"
-  style="border: 0"
   allowfullscreen=""
   loading="lazy"
 ></iframe>
 </div>
 <div class="imagen">
-<img src="./../../../assets/IMG/Frescos-Del-Valle.png" alt="">
+<img [src]="Imagen2" alt="">
 </div>
 <div class="sociales">
 <h2>{{RedesSociales}}</h2>

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  public createdby:string = "Esta página fue creada por Ángela Rodriguez y Laura Rubalcava";
+  public createdby:string = "Esta página fue creada por Laura Rubalcava";
   public fecha:string = new Date().toString();
 
   constructor() { }

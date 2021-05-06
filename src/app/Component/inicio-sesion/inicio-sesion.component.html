@@ -1,4 +1,5 @@
 <h1>{{InicioSesion}}</h1>
+<i class="fa fa-user" aria-hidden="true"></i>
 <div class="form">
   <form [formGroup]="formulario">
       <div class="form-group">
@@ -38,5 +39,6 @@
       <button [disabled]="formulario.invalid" name="" id="" class="btn btn-primary btn-lg btn-block">
         {{ButtonInicioSesion}}
       </button>
+      <p>No te has registrado: <a routerLink="/registrarusuario">Registrate aquí</a></p>
   </form>
 </div>

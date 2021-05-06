@@ -1,21 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//Rutas
 import { APP_ROUTES } from "./../app.routes";
 
-import { AppComponent } from './app.component';
-import { NavBarComponent } from './Component/nav-bar/nav-bar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+//Angular Material
 import { MatIconModule } from "@angular/material/icon";
-import { PaginaInicialComponent } from './Component/pagina-inicial/pagina-inicial.component';
-import { FooterComponent } from './Component/footer/footer.component';
 
+//Components
 import { InicioSesionComponent } from './Component/inicio-sesion/inicio-sesion.component';
-
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { RxReactiveFormsModule} from '@rxweb/reactive-form-validators';
 import { RegistrarUsuarioComponent } from './Component/registrar-usuario/registrar-usuario.component';
 import { ContactoComponent } from './Component/contacto/contacto.component';
+import { PaginaInicialComponent } from './Component/pagina-inicial/pagina-inicial.component';
+import { FooterComponent } from './Component/footer/footer.component';
+import { NavBarComponent } from './Component/nav-bar/nav-bar.component';
+import { AppComponent } from './app.component';
+
+//Angular Forms
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+
+//Validaciones
+import { RxReactiveFormsModule} from '@rxweb/reactive-form-validators';
+
+import { HttpClientModule } from "@angular/common/http";
+import { RegistrarEmpresaComponent } from './Component/registrar-empresa/registrar-empresa.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +33,8 @@ import { ContactoComponent } from './Component/contacto/contacto.component';
     FooterComponent,
     InicioSesionComponent,
     RegistrarUsuarioComponent,
-    ContactoComponent
+    ContactoComponent,
+    RegistrarEmpresaComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +43,8 @@ import { ContactoComponent } from './Component/contacto/contacto.component';
     ReactiveFormsModule,
     FormsModule,
     RxReactiveFormsModule,
-    APP_ROUTES
+    APP_ROUTES,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

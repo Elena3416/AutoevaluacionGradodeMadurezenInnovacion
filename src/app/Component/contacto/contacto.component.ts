@@ -20,6 +20,8 @@ export class ContactoComponent implements OnInit {
     public telefono:string = "Teléfono: 8183452210";
     public EnviarMensaje:string = "Enviar Mensaje";
     public RedesSociales:string = "Siguenos en nuestra redes sociales";
+    public Imagen1:string = "./../../../assets/IMG/ganaderia.png";
+    public Imagen2:string = "./../../../assets/IMG/agroalimentaria.jpg";
 
     //propiedad formulario
     public formulario!:FormGroup;
