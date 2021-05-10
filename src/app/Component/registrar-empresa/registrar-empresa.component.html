@@ -1,7 +1,7 @@
 <h1>{{RegEmpresa}}</h1>
 <form action="" class="formulario">
   <div class="contenedor1">
-    <div class="form-group" [formGroup]="formulario">
+    <div class="form-group">
       <mat-icon>insert_drive_file</mat-icon>
         <label for="">{{RFC}}</label>
         <input type="text"
@@ -85,7 +85,7 @@
             <option></option>
             <option></option>
           </select>
-          <div *ngif="Validarform('pais').error"
+          <div *ngIf="Validarform('pais').error"
           class="invalid-feedback d-block mb-3 text-center"
           style="font-size: 15;">
             {{Validarform('pais').message}}
@@ -131,7 +131,7 @@
           </div>
         </div>
     </div>
-    <button type="button" name="" id="" class="btn btn-dark btn-lg btn-block">
+    <button [disabled]="formulario.invalid" type="button" name="" id="" class="btn btn-dark btn-lg btn-block">
         {{ButtonRegEmpresa}}
     </button>
 </form>

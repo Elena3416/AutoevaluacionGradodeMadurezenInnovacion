@@ -1,80 +1,173 @@
-<h1>{{RegUsuarios}}</h1>
-<form action="" class="formulario">
+<h1>{{RegistrarUsuarios}}</h1>
+<form class="form" [formGroup]="formulario">
   <div class="contenedor1">
     <div class="form-group">
       <mat-icon>face</mat-icon>
-      <label for="">{{NombreCompleto}}</label>
+      <label for="">{{FullName}}</label>
       <input type="text"
-        class="form-control" name="" id="" aria-describedby="helpId"
+        class="form-control" id="" aria-describedby="helpId"
+        [ngClass]="{
+          'is-valid': Validarform('nombrecompleto').error == false,
+          'is-invalid': Validarform('nombrecompleto').error == true
+        }"
+        formControlName="nombrecompleto"
         placeholder="Ingresa tu nombre completo">
     </div>
-    <div class="form-group">
+    <div *ngIf="Validarform('nombrecompleto').error"
+    class="invalid-feedback d-block mb-3 text-center"
+    style="font-size: 15px; color: 15px;">
+      {{Validarform('nombrecompleto').message}}
+    </div>
+    <div class="form-group" [formGroup]="formulario">
       <mat-icon>face</mat-icon>
-      <label for="">{{ApellidoPaterno}}</label>
+      <label for="">{{LastName}}</label>
       <input type="text"
-        class="form-control" name="" id="" aria-describedby="helpId"
+        class="form-control" id="" aria-describedby="helpId"
+        [ngClass]="{
+          'is-valid': Validarform('apellidopaterno').error == false,
+          'is-invalid': Validarform('apellidopaterno').error == true
+        }"
+        formControlName="apellidopaterno";
         placeholder="Ingresa tu Apellido Paterno">
     </div>
-    <div class="form-group">
+    <div *ngIf="Validarform('apellidopaterno').error"
+    class="invalid-feedback d-block mb-3 text-center"
+    style="font-size:15px; color:#000;"
+    > {{Validarform('apellidopaterno').message}}
+  </div>
+    <div class="form-group" [formGroup]="formulario">
       <mat-icon>face</mat-icon>
-      <label for="">{{ApellidoMaterno}}</label>
+      <label for="">{{MotherLastName}}</label>
       <input type="text"
-        class="form-control" name="" id="" aria-describedby="helpId"
+        class="form-control" id="" aria-describedby="helpId"
+        [ngClass]="{
+          'is-valid': Validarform('apellidomaterno').error == false,
+          'is-invalid': Validarform('apellidomaterno').error == true
+        }"
+        formControlName="apellidomaterno"
         placeholder="Ingresa tu Apellido Materno">
     </div>
-    <div class="form-group">
+    <div *ngIf="Validarform('apellidomaterno').error"
+    class="invalid-feedback d-block mb-3 text-center"
+    style="font-size: 15px; color: #000;">
+      {{Validarform('apellidomaterno').message}}
+    </div>
+    <div class="form-group" [formGroup]="formulario">
       <mat-icon>cake</mat-icon>
-      <label for="">{{FechaNacimiento}}</label>
+      <label for="">{{BirthDate}}</label>
       <input type="date"
-        class="form-control" name="" id="" aria-describedby="helpId"
+        class="form-control" id="" aria-describedby="helpId"
+        [ngClass]="{
+          'is-valid': Validarform('fechanacimiento').error == false,
+          'is-invalid': Validarform('fechanacimiento').error == true
+        }"
+        formControlName="fechanacimiento"
         placeholder="Ingresa tu Fecha de Nacimiento">
     </div>
-    <div class="form-group">
+    <div *ngIf="Validarform('fechanacimiento').error"
+    class="invalid-feeback d-block mb-3 text-center"
+    style="font-size: 15; color: #000;">
+    {{Valiarform('fechanacimiento').message}}
+    </div>
+    <div class="form-group" [formGroup]="formulario">
       <mat-icon>stay_primary_portrait</mat-icon>
-      <label for="">{{Telefono}}</label>
+      <label for="">{{Phone}}</label>
       <input type="number"
-        class="form-control" name="" id="" aria-describedby="helpId"
+        class="form-control" id="" aria-describedby="helpId"
+        [ngClass]="{
+          'is-valid': Validarform('telefono').error == false,
+          'is-invalid': Validarform('telefono'). error == true
+        }"
+        formControlName="telefono"
         placeholder="Ingresa tu Teléfono">
     </div>
+    <div *ngIf="Validarform('telefono').error"
+    class="invalid-feeback d-block mb-3 text-center"
+    style="font-size: 15; color: #000;">
+      {{Validarform('telefono').message}}
+    </div>
   </div>
-  <div class="contenedor2">
+  <div class="contenedor2" [formGroup]="formulario">
     <div class="form-group">
       <mat-icon>email</mat-icon>
-      <label for="">{{CorreoElectronico}}</label>
+      <label for="">{{Email}}</label>
       <input type="email"
-        class="form-control" name="" id="" aria-describedby="helpId"
+        class="form-control" id="" aria-describedby="helpId"
+        [ngClass] = "{
+          'is-valid': Validarform('correoelectronico').error == false,
+          'is-invalid': Validarform('correoelectronico').error == true
+        }"
+        formControlName="correoelectronico" 
         placeholder="Ingresa tu Correo Electrónico">
     </div>
-    <div class="form-group">
+    <div *ngIf="Validarform('correoelectronico').error"
+    class="invalid-feedback d-block mb-3 text-center"
+    style="font-size: 15px; color: #000;">
+      {{Validarform('correoelectronico').message}}
+    </div>
+    <div class="form-group" [formGroup]="formulario">
       <mat-icon>password</mat-icon>
       <label for="">{{Contrasenia}}</label>
       <input type="password"
-        class="form-control" name="" id="" aria-describedby="helpId"
+        class="form-control" id="" aria-describedby="helpId"
+        [ngClass]="{
+          'is-valid': Validarform('password').error == false,
+          'is-invalid': Validarform('password').error == true
+        }"
+        formControlName="password"
         placeholder="Ingresa tu Contraseña">
     </div>
-    <div class="form-group">
+    <div *ngIf="Validarform('password').error"
+    class="invalid-feeback d-block mb-3 text-center"
+    style="font-size: 15px; color: #000;">
+      {{Validarform('password').message}}
+    </div>
+    <div class="form-group" [formControl]="formulario">
       <mat-icon>password</mat-icon>
       <label for="">{{RepetirContrasenia}}</label>
       <input type="password"
-        class="form-control" name="" id="" aria-describedby="helpId"
+        class="form-control" id="" aria-describedby="helpId"
+        [ngClass]="{
+          'is-valid': Validarform('repetirpassword').error == false,
+          'is-invalid': Validarform('repetirpassword').error == true 
+        }"
+        formControlName="repetirpassword"
         placeholder="Ingresa de nuevo tu contraseña">
     </div>
-    <div class="form-group">
+    <div *ngIf="Validarform('repetirpassword').error"
+    class="invalid-feedback d-block mb-3 text-center"
+    style="font-size: 15; color: #000;"
+    >
+    {{Validarform('repetirpassword').message}}
+    </div>
+    <div class="form-group" [formGroup]="formulario">
       <mat-icon>business_center</mat-icon>
-      <label for="">{{PuestoPerteneceEmpresa}}</label>
-      <select class="form-control" name="" id="">
+      <label for="">{{PositionCompany}}</label>
+      <select class="form-control" id=""
+      [ngClass]="{
+        'is-valid': Validarform('puestopertenece').error == false,
+        'is-invalid': Validarform('puestopertenece').error == true
+      }" 
+      formControlName="puestopertenece"
+      >
         <option>Selecciona tu puesto:</option>
         <option></option>
         <option></option>
       </select>
     </div>
+    <div *ngIf="Validarform('puestopertenece').error"
+    class="invalid-feedback d-block mb-3 text-center"
+    style="font-size: 15px; color: #000;">
+    {{Validarform('puestopertenece').message}}
+  </div>
     <div class="form-check">
       <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+        <input type="checkbox" class="form-check-input" ngmodel="master" id="" value="checkedValue">
        {{Condiciones}}
       </label>
     </div>
   </div>
-  <button type="button" name="" id=""
+  <button [disabled]="formulario.invalid" type="button" name="" id=""
   class="btn btn-dark btn-lg btn-block">{{ButtonRegUsuario}}</button>
 </form>
+

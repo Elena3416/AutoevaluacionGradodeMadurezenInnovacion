@@ -11,6 +11,7 @@ const Rutas: Routes = [
     { path: 'registrarusuario', component:RegistrarUsuarioComponent},
     { path: 'iniciarsesion', component: InicioSesionComponent},
     { path: 'contacto', component:ContactoComponent},
+    { path: 'registrarempresa', component:RegistrarUsuarioComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'paginainicial'}
 ];
 

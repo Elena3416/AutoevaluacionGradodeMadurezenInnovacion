@@ -6,7 +6,7 @@ h1{
     font-weight: 700;
 }
 
-.formulario{
+.form{
     width: 100%;
     display: flex;
     flex-flow: row wrap;
