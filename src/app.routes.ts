@@ -1,3 +1,5 @@
+import { RegistrarEmpresaComponent } from './app/Component/registrar-empresa/registrar-empresa.component';
+import { EncuestasComponent } from './app/Component/encuestas/encuestas.component';
 import { ContactoComponent } from './app/Component/contacto/contacto.component';
 import { RegistrarUsuarioComponent } from './app/Component/registrar-usuario/registrar-usuario.component';
 import { InicioSesionComponent } from './app/Component/inicio-sesion/inicio-sesion.component';
@@ -11,7 +13,8 @@ const Rutas: Routes = [
     { path: 'registrarusuario', component:RegistrarUsuarioComponent},
     { path: 'iniciarsesion', component: InicioSesionComponent},
     { path: 'contacto', component:ContactoComponent},
-    { path: 'registrarempresa', component:RegistrarUsuarioComponent},
+    { path: 'registrarempresa', component:RegistrarEmpresaComponent},
+    { path: 'encuestas', component:EncuestasComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'paginainicial'}
 ];
 

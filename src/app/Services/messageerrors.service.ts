@@ -49,6 +49,10 @@ export class MessageerrorsService {
       case errorRecibido.hasOwnProperty('compare'):
       message = "Esta contraseña no coincide con la contraseña anterior";
       break;
+
+      case errorRecibido.hasOwnProperty('upperCase'):
+      message = "El RFC debe ser escrito con mayúsculas";
+      break;  
     }
 
     return {

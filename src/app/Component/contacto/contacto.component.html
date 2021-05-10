@@ -1,4 +1,5 @@
 <h1>{{Contacto}}</h1>
+<mat-icon> stay_current_portrait</mat-icon>
 <img [src]="Imagen1" alt="frescosdelvalle" />
 <div class="contacto">
 <div class="form">
@@ -23,6 +24,7 @@
   <div class="form-group" [formGroup]="formulario">
     <label for="">{{Asunto}}</label>
     <input
+    appUppercaseletter
       type="text"
       class="form-control"
       id=""
@@ -43,7 +45,7 @@
 </div>
   <div class="form-group" [formGroup]="formulario">
     <label for="">{{Mensaje}}</label>
-    <textarea class="form-control"
+    <textarea appUppercaseletter class="form-control"
     id="" rows="3"
     [ngClass]="{
       'is-valid': Validarform('Mensaje').error == false,

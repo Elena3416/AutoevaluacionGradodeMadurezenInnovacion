@@ -5,9 +5,15 @@ h1{
     font-size: 30px;
     font-weight: 700;
   }
+
+  mat-icon{
+    font-size: 100px;
+    color:rgb(4, 100, 117);
+    margin-left: 46%;
+  }  
   
   img{
-    width: 95%;
+    width: 96%;
     height: 95vh;
     margin-left: 2%;
     border: 2px solid #fff;
@@ -62,7 +68,6 @@ textarea::placeholder{
   
   .texto > p{
     padding-top: 6%;
-
   }
   
   .mapa{
@@ -84,7 +89,7 @@ textarea::placeholder{
   .sociales > a > i{
     font-size: 30px;
     color:  rgb(1, 29, 34);
-    margin-bottom: 1%;
+    margin-bottom: 2%;
     padding-left: 5%;
     position: relative;
     left: 30%;

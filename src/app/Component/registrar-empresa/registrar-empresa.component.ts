@@ -12,7 +12,7 @@ export class RegistrarEmpresaComponent implements OnInit {
 
   //informacion del html
   public RegEmpresa:string = "Registro de Empresa";
-  public RFC:string = "Ingresa el RFC de la Empresa:";
+  public Identificacion:string = "Ingresa el RFC de la Empresa:";
   public NombreEmpresa:string = "Ingresa el Nombre de la Empresa:";
   public Cluster:string = "Ingresa el/los clústers al que pertenece la Empresa:";
   public GiroEmpresa:string = "Ingresa el Giro de la Empresa:";
@@ -33,8 +33,9 @@ export class RegistrarEmpresaComponent implements OnInit {
   public CreateForm(){
     this.formulario = new FormGroup({
 
-      RFC: new FormControl(null, [
+      rfc: new FormControl(null, [
         RxwebValidators.required(),
+        RxwebValidators.upperCase(),
         RxwebValidators.alphaNumeric(),
         RxwebValidators.maxLength({value:13})
       ]),
@@ -61,13 +62,13 @@ export class RegistrarEmpresaComponent implements OnInit {
       ]),
 
       pais: new FormControl(null, [
-        RxwebValidators.maxLength({value:10})]),
+        RxwebValidators.required()]),
 
       estado: new FormControl(null, [
-        RxwebValidators.maxLength({value:10})]),
+        RxwebValidators.required()]),
         
       municipio: new FormControl(null, [
-        RxwebValidators.maxLength({value:10})]),  
+        RxwebValidators.required()]),  
     });
   }
 

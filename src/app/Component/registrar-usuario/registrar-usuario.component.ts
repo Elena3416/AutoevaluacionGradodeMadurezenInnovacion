@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './registrar-usuario.component.html',
   styleUrls: ['./registrar-usuario.component.css']
 })
-export class RegistrarUsuarioComponent implements OnInit {
 
+export class RegistrarUsuarioComponent implements OnInit {
   public RegistrarUsuarios:string = "Registro de usuario";
   public FullName:string = "Ingresa tu Nombre Completo:";
   public LastName:string = "Ingresa tu Apellido Paterno:";
@@ -24,6 +24,7 @@ export class RegistrarUsuarioComponent implements OnInit {
   public Condiciones:string = "Aceptar Términos y condiciones";
 
   public formulario! : FormGroup;
+
   constructor(private AWMsg:MessageerrorsService) { }
 
   ngOnInit(): void {
@@ -51,7 +52,7 @@ export class RegistrarUsuarioComponent implements OnInit {
           RxwebValidators.minLength({value:5}),
           RxwebValidators.maxLength({value:30})]),
           
-          fechanacimiento: new FormControl(null, [
+        fechanacimiento: new FormControl(null, [
            RxwebValidators.required()]),
            
          telefono: new FormControl(null, [
@@ -75,7 +76,11 @@ export class RegistrarUsuarioComponent implements OnInit {
           RxwebValidators.compare({fieldName:"password"})]),
 
         puestopertenece: new FormControl(null,[
-          RxwebValidators.required()])
+          RxwebValidators.required()]),
+
+        condiciones: new FormControl(null, [
+          RxwebValidators.required(),
+          RxwebValidators.requiredTrue()])
       })
   }
 

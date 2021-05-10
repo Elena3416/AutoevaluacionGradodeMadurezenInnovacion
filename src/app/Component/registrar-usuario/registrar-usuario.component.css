@@ -6,6 +6,12 @@ h1{
     font-weight: 700;
 }
 
+i{
+    font-size: 130px;
+    color:rgb(4, 100, 117);
+    margin-left: 45%;
+  }
+
 .form{
     width: 100%;
     display: flex;
@@ -40,7 +46,7 @@ label{
 
 input{
     border: 2px solid #3E5151;
-    background: #6c9191;
+    background: #a6c5c5;
     border-radius: 10px;
 }
 
@@ -50,15 +56,15 @@ input::placeholder{
 
 select{
     border: 2px solid #3E5151;
-    background: #6c9191;
+    background: #a6c5c5;
     border-radius: 10px;
     color: #000;
 }
 
 .form-check{
     position: relative;
-	margin-top: 80px;
-	padding:5px 0 5px 60px;     
+	top: 70px;
+	padding:5px 0 5px 10px;     
 	display: block;
     font-weight: 700;
 }

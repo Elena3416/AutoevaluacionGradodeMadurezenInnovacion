@@ -15,6 +15,8 @@ import { PaginaInicialComponent } from './Component/pagina-inicial/pagina-inicia
 import { FooterComponent } from './Component/footer/footer.component';
 import { NavBarComponent } from './Component/nav-bar/nav-bar.component';
 import { AppComponent } from './app.component';
+import { RegistrarEmpresaComponent } from './Component/registrar-empresa/registrar-empresa.component';
+import { EncuestasComponent } from './Component/encuestas/encuestas.component';
 
 //Angular Forms
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
@@ -23,7 +25,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { RxReactiveFormsModule} from '@rxweb/reactive-form-validators';
 
 import { HttpClientModule } from "@angular/common/http";
-import { RegistrarEmpresaComponent } from './Component/registrar-empresa/registrar-empresa.component';
+import { UppercaseletterDirective } from './Directivas/uppercaseletter.directive';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { RegistrarEmpresaComponent } from './Component/registrar-empresa/registr
     InicioSesionComponent,
     RegistrarUsuarioComponent,
     ContactoComponent,
-    RegistrarEmpresaComponent
+    RegistrarEmpresaComponent,
+    EncuestasComponent,
+    UppercaseletterDirective
   ],
   imports: [
     BrowserModule,
