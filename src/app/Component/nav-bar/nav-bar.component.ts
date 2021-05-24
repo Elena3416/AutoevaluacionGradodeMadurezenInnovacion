@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { SessionService } from './../../Services/session.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,17 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  Titulo:string = 'Autoevaluación - Grado de Madurez en Innovación';
-  PaginaInicial:string = 'Página Inicial';
-  RegistroUsuario:string = 'Registrar Usuario';
-  InicioSesion:string = 'Inicio Sesión';
-  Contacto:string = "Contacto";
-  RegistraeEmpresa:string = "Registrar Empresa";
-  Encuesta:string = "Encuestas";
-  imagen:string = "./../../../assets/IMG/logo.jpg";
+  public titulo:string = "Nuevo León 4.0";
+  public logo:string = "assets/IMG/logo2.jpg";
+  public Empresa:string = "Mi empresa";
+  public Encuestas:string = "Encuestas";
+  public Colaboradores:string = "Mis colaboradores";
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    private session:SessionService,
+    private router:Router
+  ) { }
+  
+  nombre: string = " ";
+  tipo_user: string = " ";
+  admin: boolean = true;
+  
+  ngOnInit() {
+    // this.getStrings();
+    // this.isAdmin();
   }
+
+  // getStrings(){
+  //   this.nombre = this.session.getContactoName();
+  //   this.tipo_user = this.session.getTipoUsuario();
+  // }
+
+  closeSession(){
+    this.session.closeSession();
+    this.router.navigateByUrl('landing');
+  }
+
+  // isAdmin(){
+  //   if(this.session.getTipoUsuario() == "colaborador"){
+  //     this.admin = false;
+  //   }
+  // }
 }

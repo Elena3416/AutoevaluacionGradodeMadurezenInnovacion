@@ -1,3 +1,90 @@
-<img [src]="ImagenPrincipal" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-white rounded w-100">
+  <div class="row ml-5">
+    <div class="col-4">
+      <img [src]="logo" alt="logo1" class="img-fluid w-100">
+    </div>
+    <div class="col-8 mt-3">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-xl-center">{{titulo}}</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-xl-center">
+            {{Autoevaluacion}}
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-xl-center">{{Madurez}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <img [src]="imagen" alt="madurez" class="img-fluid w-100">
+    </div>
+  </div>
+  <hr>
+  <div class="row mt-2">
+    <div class="col-12">
+      <p class="lead text-center">
+        {{parrafo1}}
+      </p>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-12">
+      <p class="lead text-justify">
+        {{parrafo2}}
+      </p>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-12">
+      <p class="lead text-justify">
+        {{parrafo3}}
+      </p>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-12">
+      <p class="lead text-center">
+        {{parrafo4}}
+      </p>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-lg-6 col-sm-12 col-md-6 text-right">
+      <button class="btn btn-primary btn-w" (click)="routerTo('registrarusuario')">{{btnregistrate}}</button>
+    </div>
+    <div class="col-lg-6 col-sm-12 col-md-6">
+      <button class="btn btn-info btn-w" data-toggle="modal" data-target="#exampleModal">{{btniniciasesion}}</button>
+    </div>
+  </div>
+</div>
 
-
+<!-- Modal Login -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{iniciarsesion}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-inicio-sesion></app-inicio-sesion>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

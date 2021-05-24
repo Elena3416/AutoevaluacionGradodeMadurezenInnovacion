@@ -1,24 +1,37 @@
-import { Country } from "./../Interface/country";
+import { Country } from "../Interfaces/countryInterface";
+import { Municipio } from "./../Interfaces/municipiointerfaz";
 import { HttpClient } from '@angular/common/http';
 import { map, mergeMap} from "rxjs/operators";
 import { Injectable } from '@angular/core';
-import { from, Observable } from "rxjs";
+import { from } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountryService {
 
-  private url:string = "https://restcountries.eu/rest/v2/all";
+  private urlCountry:string = "https://restcountries.eu/rest/v2/all";
+  private urlMunicipio:string = "https://datos-abiertos.edomex.gob.mx/documentos/datosabiertos/inegi/municipios.json";
 
   constructor(private http:HttpClient) { }
 
-  // public GetCountries(){
-  //   return this.http.get(this.url).
-  //   pipe
-  //   (
-  //     mergeMap((countries:Country[]) => 
-  //       from((countries)).pipe(
-  //         map((country) => country.name)))
-  // }
+  public GetCountries() {
+    return this.http.get<Country[]>(this.urlCountry).pipe(
+        mergeMap((countries:Country[])=>
+          from((countries)).pipe(
+            map((Country) => Country.name)
+          )
+        )
+      );
+  }
+
+  public GetMunicipios(){
+    return this.http.get<Municipio[]>(this.urlMunicipio).pipe(
+      mergeMap((municipios:Municipio[]) => 
+        from((municipios)).pipe(
+          map((Municipio) => Municipio.nombre)
+        )
+      )
+    );
+  }
 }

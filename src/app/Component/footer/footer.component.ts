@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  public createdby:string = "Esta página fue creada por Laura Rubalcava";
-  public fecha:string = new Date().toString();
+  public copyright:string = "Copyright 2021 N.L. v0.1.0"; 
+  public createby:string = "Desarrollado en conjunto por";
+  public name:string = "Raúl Cavajal y Laura Rubalcava";
+  public company:string = "Tecnoap";
 
   constructor() { }
 

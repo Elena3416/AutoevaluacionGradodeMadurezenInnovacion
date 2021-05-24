@@ -1,0 +1,49 @@
+<form [formGroup]="formulario">
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">{{CorreoElectronico}}</label>
+        <input type="email" class="form-control" [ngClass]="{
+          'is-valid': Validarform('Email').error == false,
+          'is-invalid': Validarform('Email').error == true
+        }" formControlName="Email" id="email" aria-describedby="helpId" placeholder="Ingresa tu correo electrónico">
+      </div>
+      <div *ngIf="Validarform('Email').error" class="invalid-feedback d-block mb-3 text-center"
+        style="font-size: 15px; color: #000;">
+        {{Validarform('Email').message}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group" [formGroup]="formulario">
+        <label for="">{{Password}}</label>
+        <input type="password" class="form-control" [ngClass]="{
+        'is-valid': Validarform('Password').error == false,
+        'is-invalid': Validarform('Password').error == true
+      }" formControlName="Password" id="contrasenia" aria-describedby="helpId" placeholder="Ingresa tu contraseña">
+      </div>
+      <div *ngIf="Validarform('Password').error" class="invalid-feedback d-block mb-3 text-center"
+        style="font-size:15px; color: black;">
+        {{Validarform('Password').message}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button [disabled]="formulario.invalid" name="" id="" class="btn btn-info btn-lg btn-block">
+        {{ButtonInicioSesion}}
+      </button>
+    </div>
+  </div>
+</form>
+<div class="row mt-5">
+  <div class="offset-md-4 col-12">
+    <mat-spinner *ngIf="log"></mat-spinner>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-12">
+      <a (click)="routerTo('cambiarpassword')">{{linkolvidarpassword}}</a>
+  </div>
+</div>

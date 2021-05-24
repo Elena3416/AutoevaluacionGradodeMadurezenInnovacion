@@ -1,28 +1,13 @@
-footer{
-    display: flex;
-    box-flex: row wrap;
-    padding-left:20%;
-    text-align: center;
-   }
-   
-   footer > div > mat-icon{
-     position: relative;
-     top:7px;
-   }
-   
-   .sociales{
-     width: 50%;
-     margin-top: 2%;
-     margin-left: 10%;
-   }
-   
-   .sociales > a > i{
-     font-size: 18px;
-     color:  rgb(4, 100, 117);
-     margin-left: 6%;
-     padding-bottom: 1%;
-   }
-   
-   .sociales > a > i:hover{
-    color: rgb(66, 72, 82);
-   }
+small{
+  font-size: 13px;
+}
+
+small > a{
+  color: rgb(8, 8, 8);
+}
+
+mat-icon{
+  font-size: 13px;
+  position: relative;
+  top:2px;
+}
