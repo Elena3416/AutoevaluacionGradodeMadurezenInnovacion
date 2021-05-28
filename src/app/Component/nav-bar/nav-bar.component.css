@@ -5,4 +5,9 @@ a > mat-icon{
 
 .nav-link{
   font-size: 17px;
+  color: #000;
+}
+
+#color{
+  color: #000;
 }

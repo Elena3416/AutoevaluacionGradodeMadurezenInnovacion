@@ -11,14 +11,14 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <h1 class="text-xl-center">
+          <h2 class="text-xl-center">
             {{Autoevaluacion}}
-          </h1>
+          </h2>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <h1 class="text-xl-center">{{Madurez}}</h1>
+          <h3 class="text-xl-center ml-4">{{Madurez}}</h3>
         </div>
       </div>
     </div>
@@ -60,10 +60,11 @@
   </div>
   <div class="row mt-5">
     <div class="col-lg-6 col-sm-12 col-md-6 text-right">
-      <button class="btn btn-primary btn-w" (click)="routerTo('registrarusuario')">{{btnregistrate}}</button>
+      <button class="btn btn-primary btn-w" (click)="routerTo('registraradministrador')">{{btnregistrate}}</button>
     </div>
     <div class="col-lg-6 col-sm-12 col-md-6">
       <button class="btn btn-info btn-w" data-toggle="modal" data-target="#exampleModal">{{btniniciasesion}}</button>
+      <button type="button" id="close-modal" class="btn btn-secondary" data-dismiss="modal" style="display: none">Cerrar</button>
     </div>
   </div>
 </div>

@@ -1,0 +1,182 @@
+<app-nav-bar></app-nav-bar>
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-light rounded w-100">
+    <form class="form" [formGroup]="formulario">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="display-4 text-med text-center font-weight-bold">{{RegEmpresa}}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h4 class="text-center mt-3">{{condiciones}}</h4>
+      </div>        
+    </div>
+    <div class="row mt-3">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="" class="font-weight-bold">{{Identificacion}}</label>
+          <mat-form-field class="w-100">
+            <input matInput type="text"
+            [ngClass]="{
+                'is-valid': Validarform('rfc').error == false,
+                'is-invalid': Validarform('rfc').error == true
+            }"
+            formControlName="rfc">
+        </mat-form-field>
+    </div>
+    <div *ngIf="Validarform('rfc').error"
+    class="invalid-feedback d-block mb-3 text-center"
+    style="font-size:13px; color: red;">
+    {{Validarform('rfc').message}}</div>
+  </div>
+    <div class="col-6">
+        <div class="form-group" [formGroup]="formulario">
+        <label for="" class="font-weight-bold">{{NombreEmpresa}}</label>
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-select [ngClass]="{
+          'is-valid': Validarform('nombreempresa').error == false,
+          'is-invalid': Validarform('nombreempresa').error == true
+         }"
+         formControlName="nombreempresa">
+          <mat-option >
+              Selecciona tu empresa
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div *ngIf="Validarform('nombreempresa').error"
+    class="invalid-feedback d-block mb-3 text-center"
+    style="font-size: 13px; color: red;">
+      {{Validarform('nombreempresa').message}}
+    </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group" [formGroup]="formulario">
+          <label for="" class="font-weight-bold">{{Cluster}}</label>
+        <mat-form-field appearance="fill" class="w-100">
+        <mat-select [ngClass]="{
+          'is-valid': Validarform('cluster').error == false,
+          'is-invalid': Validarform('cluster').error == true
+         }"
+         formControlName="cluster">
+          <mat-option >
+              Selecciona al cluster que perteneces
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="Validarform('cluster').error"
+      class="invalid-feedback d-block mb-3 text-center"
+      style="font-size: 13px; color: red;">
+        {{Validarform('cluster').message}}
+      </div>
+      </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group" [formGroup]="formulario">
+          <label for="" class="font-weight-bold">{{GiroEmpresa}}</label>
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-select [ngClass]="{
+              'is-valid': Validarform('giroempresa').error == false,
+              'is-invalid': Validarform('giroempresa').error == true
+             }"
+             formControlName="giroempresa">
+              <mat-option >
+                  Selecciona el giro de la empresa
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div *ngIf="Validarform('giroempresa').error"
+          class="invalid-feedback d-block mb-3 text-center"
+          style="font-size: 13px; color: red;">
+            {{Validarform('giroempresa').message}}
+          </div>
+      </div>
+    </div>
+    </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group" [formGroup]="formulario">
+        <label for="" class="font-weight-bold">{{Pais}}</label>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-select [ngClass]="{
+            'is-valid': Validarform('pais').error == false,
+            'is-invalid': Validarform('pais').error == true
+           }"
+           formControlName="pais">
+            <mat-option >
+                Selecciona tu pais
+            </mat-option>
+            <mat-option *ngFor="let country of NameCountries" [value]="country">
+              {{country}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="Validarform('pais').error"
+        class="invalid-feedback d-block mb-3 text-center"
+        style="font-size: 13px; color: red;">
+          {{Validarform('pais').message}}
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group" [formGroup]="formulario">
+        <label for="" class="font-weight-bold">{{Estado}}</label>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-select [ngClass]="{
+            'is-valid': Validarform('estado').error == false,
+            'is-invalid': Validarform('estado').error == true
+           }"
+           formControlName="estado">
+            <mat-option >
+                Selecciona tu estado
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="Validarform('estado').error"
+        class="invalid-feedback d-block mb-3 text-center"
+        style="font-size: 13px; color: red;">
+          {{Validarform('estado').message}}
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group" [formGroup]="formulario">
+        <label for="" class="font-weight-bold">{{Municipio}}</label>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-select [ngClass]="{
+            'is-valid': Validarform('municipio').error == false,
+            'is-invalid': Validarform('municipio').error == true
+           }"
+           formControlName="municipio">
+            <mat-option >
+                Selecciona tu municipio
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="Validarform('municipio').error"
+        class="invalid-feedback d-block mb-3 text-center"
+        style="font-size: 13px; color: red;">
+          {{Validarform('municipio').message}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button [disabled]="formulario.invalid" type="button" name="" id=""
+      class="btn btn-success btn-lg btn-block">{{ButtonRegEmpresa}}
+      </button>
+    </div>
+  </div>
+  </form>
+  <div class="row mt-3">
+    <div class="col-12">
+      <p id="texto">{{parrafo1}}</p>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -21,9 +21,7 @@ export class PaginaInicialComponent implements OnInit {
   public btniniciasesion:string = "INICIA SESIÓN";
   public iniciarsesion:string = "Iniciar sesión";
   
-  constructor(
-    private router:Router
-  ) { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }

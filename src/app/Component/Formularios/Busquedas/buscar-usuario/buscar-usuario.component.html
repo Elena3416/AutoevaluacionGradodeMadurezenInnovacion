@@ -1,0 +1,122 @@
+<app-nav-bar></app-nav-bar>
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-light rounded w-100">
+    <form action="" [formGroup]="formulario">
+        <div class="row mt-2">
+            <div class="col-12">
+                <h1 class="display-4 text-med text-center font-weight-bold">{{Titulo}}</h1>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <h3 class="text-center">{{Mensaje}}</h3>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="" class="font-weight-bold">{{UserName}}</label>
+                    <mat-form-field class="w-100">
+                    <input matInput type="text"
+                    [ngClass]="{
+                        'is-valid': Validarform('nombreusuario').error == false,
+                        'is-invalid': Validarform('nombreusuario').error == true
+                    }"
+                    formControlName="nombreusuario">
+                </mat-form-field>
+            </div>
+            <div *ngIf="Validarform('nombreusuario').error"
+            class="invalid-feedback d-block mb-3 text-center"
+            style="font-size:13px; color: red;">
+            {{Validarform('nombreusuario').message}}</div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button type="button" [disabled]="formulario.invalid" name="" id=""
+                    class="btn btn-info btn-lg btn-block mt-2">
+                    {{buscarusuario}}
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Id_Usuario</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellido Paterno</th>
+                        <th scope="col">Apellido Materno</th>
+                        <th scope="col">Correo Electronico</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Fecha Nacimiento</th>
+                        <th scope="col">Pertenece Empresa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button type="button" name="" id=""
+                                class="btn btn-warning btn-sm btn-block" (click)="userupdate()">Modificar</button>
+                        </td>
+                        <td>
+                            <button type="button" name="" id=""
+                                class="btn btn-danger btn-sm btn-block" (click)="userdelete()">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button type="button" name="" id=""
+                                class="btn btn-warning btn-sm btn-block"(click)="userupdate()">Modificar</button>
+                        </td>
+                        <td>
+                            <button type="button" name="" id=""
+                                class="btn btn-danger btn-sm btn-block" (click)="userdelete()">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button type="button" name="" id=""
+                                class="btn btn-warning btn-sm btn-block" (click)="userupdate()">Modificar</button>
+                        </td>
+                        <td>
+                            <button type="button" name="" id=""
+                                class="btn btn-danger btn-sm btn-block" (click)="userdelete()">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p id="texto">{{parrafo1}}</p>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

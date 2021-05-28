@@ -1,0 +1,122 @@
+<app-nav-bar></app-nav-bar>
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-white rounded w-100 m-auto h-100">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+      <a routerLink="/registrarempresa" role="button" class="btn btn-outline-primary display-2" data-toggle="tooltip" data-placement="top" title="Regresar">
+        <mat-icon>arrow_back</mat-icon>
+      </a> 
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right">
+      <a class="display-2 btn btn-outline-primary" role="button" data-toggle="modal" data-target="#exampleModal">
+        <mat-icon>edit</mat-icon>
+      </a>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <h1 class="display-4 inline-icon">{{Cuenta}}</h1>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <ul class="list-group list-goup-sm">
+        <li class="list-group-item">
+          <p class="lead">{{Datos}}</p>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <strong>{{Empresa}}</strong>
+              <br>
+              <p></p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <strong>{{Registradocomo}}</strong>
+              <br>
+              <p></p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <strong>{{Puesto}}</strong>
+              <br>
+              <p></p>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <p class="lead">{{Personales}}</p>
+          <div class="row">
+            <div class="col">
+              <strong>{{Nombre}}</strong>
+              <br>
+              <p></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <strong>{{Correo}}</strong>
+              <br>
+              <p></p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <strong>{{Telefono}}</strong>
+              <br>
+              <p></p>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <p class="lead">{{Sesion}}</p>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <strong>{{Usuario}}</strong>
+              <br>
+              <p></p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <strong>{{Contrasena}}</strong>
+              <br>
+              <p></p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-white rounded w-100 m-auto">
+  <div class="row">
+    <div class="col">
+        <h1 class="lead">
+          {{Cargando}}
+        </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+        <!-- <mat-spinner class="mx-auto"></mat-spinner> -->
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">{{Contrasena2}}</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <mat-form-field class="w-100">
+          <input matInput placeholder="Digite su contraseña para editar" type="password">
+        </mat-form-field>
+        <div class="text-right">
+          <button type="button" id="close-modal" class="btn btn-secondary" data-dismiss="modal" style="display: none">{{Cerrar}}</button>
+          <button class="btn btn-success mr-auto">{{Entrar}}</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

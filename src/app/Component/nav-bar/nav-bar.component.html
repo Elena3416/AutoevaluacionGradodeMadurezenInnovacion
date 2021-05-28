@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light  shadow-lg">
   <div class="container">
-    <a class="navbar-brand" routerLink="/inicio" >
+    <a class="navbar-brand" routerLink="/paginainicial">
       <img [src]="logo" width="30" height="30" class="d-inline-block align-top" alt="">
       {{titulo}}
     </a>
@@ -10,14 +10,35 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-dark" routerLink="/empresa" routerLinkActive="active">{{Empresa}}</a>
+          <a id="color" class="nav-link" routerLink="/inicio" routerLinkActive="active">{{Inicio}}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" routerLink="/productos" routerLinkActive="active">{{Encuestas}}</a>
+        <li class="nav-item dropdown">
+          <a id="color" class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" 
+          aria-expanded="false" >{{Empresa}}
+          </a>
+          <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/registrarempresa">{{RegistrarEmpresa}}</a>
+            <a class="dropdown-item" routerLink="/busquedaempresa">{{BuscarEmpresa}}</a>
+          </div>         
         </li>
-        <li class="nav-item" *ngIf="admin">
-          <a class="nav-link text-dark" routerLink="/colaboradores" routerLinkActive="active">{{Colaboradores}}</a>
+        <li class="nav-item dropdown">
+          <a id="color" class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" 
+          aria-expanded="false" >{{Encuestas}}
+          </a>
+          <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/registrarencuesta">{{RegistrarEncuesta}}</a>
+            <a class="dropdown-item" routerLink="/busquedaencuesta">{{BuscarEncuesta}}</a>
+          </div>         
         </li>
+          <li class="nav-item dropdown">
+              <a id="color" class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" 
+              aria-expanded="false">{{Colaboradores}}
+              </a>
+              <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" routerLink="/registrarusuario">{{RegistrarUsuario}}</a>
+                <a class="dropdown-item" routerLink="/busquedausuario">{{BuscarUsuario}}</a>
+              </div>
+            </li>
       </ul>
       <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
@@ -25,11 +46,10 @@
                 <mat-icon class="aligned-with-icon">account_circle</mat-icon>
               </a>
               <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdownMenuLink">
-                <!-- <a class="dropdown-item disabled" [routerLink]="colaboradores">{{nombre}}({{tipo_user}})</a> -->
-                <a class="dropdown-item" routerLink="/micuenta">Mi cuenta</a>
-                <a class="dropdown-item" (click)="closeSession()" >Cerrar sesión</a>
+                <a class="dropdown-item" routerLink="/micuenta">{{MiCuenta}}</a>
+                <a class="dropdown-item" (click)="closeSession()">{{Cerrarsesion}}</a>
               </div>
-            </li>
+          </li>
       </ul>
     </div>
   </div>

@@ -1,0 +1,47 @@
+<app-nav-bar></app-nav-bar>
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-light rounded w-100">
+    <form action="" [formGroup]="formulario">
+        <div class="row mt-2">
+            <div class="col-12">
+                <h1 class="display-4 text-med text-center font-weight-bold">{{Titulo}}</h1>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <h3 class="text-center">{{Mensaje}}</h3>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="" class="font-weight-bold">{{Etiqueta}}</label>
+                    <mat-form-field class="w-100">
+                        <input matInput type="text"
+                        [ngClass]="{
+                            'is-valid': Validarform('rfcempresa').error == false,
+                            'is-invalid': Validarform('rfcempresa').error == true
+                        }"
+                        formControlName="rfcempresa">
+                    </mat-form-field>
+                </div>
+                <div *ngIf="Validarform('rfcempresa').error"
+                class="invalid-feedback d-block mb-3 text-center"
+                style="font-size:13px; color: red;">
+                {{Validarform('rfcempresa').message}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button type="button" [disabled]="formulario.invalid" name="" id="" class="btn btn-success btn-lg btn-block mt-2">
+                    {{btnBuscarEmpresa}}
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="row mt-5">
+        <div class="col-12">
+            <p id="texto">{{parrafo1}}</p>
+        </div>
+  </div>  
+</div>
+<app-footer></app-footer>
