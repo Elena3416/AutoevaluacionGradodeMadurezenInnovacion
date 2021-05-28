@@ -16,7 +16,7 @@
         <div class="form-group">
           <label for="" class="font-weight-bold">{{FullName}}</label>
           <mat-form-field class="w-100">
-            <input matInput type="text" [ngClass]="{
+            <input appUppercaseletter matInput type="text" [ngClass]="{
                   'is-valid': Validarform('nombrecompleto').error == false,
                   'is-invalid': Validarform('nombrecompleto').error == true
               }" formControlName="nombrecompleto">
@@ -30,7 +30,7 @@
         <div class="form-group" [formGroup]="formulario">
           <label for="" class="font-weight-bold">{{LastName}}</label>
           <mat-form-field class="w-100">
-            <input matInput type="text" [ngClass]="{
+            <input appUppercaseletter matInput type="text" [ngClass]="{
                   'is-valid': Validarform('apellidopaterno').error == false,
                   'is-invalid': Validarform('apellidopaterno').error == true
               }" formControlName="apellidopaterno">
@@ -46,7 +46,7 @@
         <div class="form-group" [formGroup]="formulario">
           <label for="" class="font-weight-bold">{{MotherLastName}}</label>
           <mat-form-field class="w-100">
-            <input matInput type="text" [ngClass]="{
+            <input appUppercaseletter matInput type="text" [ngClass]="{
                   'is-valid': Validarform('apellidomaterno').error == false,
                   'is-invalid': Validarform('apellidomaterno').error == true
               }" formControlName="apellidomaterno">
