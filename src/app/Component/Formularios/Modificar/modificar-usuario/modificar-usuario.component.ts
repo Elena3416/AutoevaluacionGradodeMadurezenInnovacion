@@ -12,18 +12,17 @@ import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 })
 export class ModificarUsuarioComponent implements OnInit {
   public ModificarUsuarios:string = "Modificar Usuario";
-  public FullName:string = "Ingresa tu Nombre Completo: *";
-  public LastName:string = "Ingresa tu Apellido Paterno: *";
-  public MotherLastName:string = "Ingresa tu Apellido Materno: *";
-  public Email:string = "Ingresa tu Correo Electrónico: *";
-  public Contrasenia:string = "Ingresa tu Contraseña: *";
-  public RepetirContrasenia:string = "Ingresa de nuevo tu Contraseña: *";
-  public Phone:string = "Ingresa tu Teléfono celular: *";
-  public BirthDate:string = "Ingresa tu Fecha Nacimiento: *";
-  public PositionCompany:string = "Selecciona el puesto de la empresa a la que perteneces: *";
+  public FullName:string = "Nombre Completo: *";
+  public LastName:string = "Apellido Paterno: *";
+  public MotherLastName:string = "Apellido Materno: *";
+  public Email:string = "Correo Electrónico: *";
+  public Contrasenia:string = "Contraseña: *";
+  public RepetirContrasenia:string = "Confirma de nuevo tu Contraseña: *";
+  public Phone:string = "Teléfono de contacto: *";
+  public BirthDate:string = "Fecha Nacimiento: *";
+  public PositionCompany:string = "Puesto de la empresa a la que perteneces: *";
   public ButtonUpdateUsuario:string = "Modificar Usuario";
-  public Registroadmon:string = "Registro de administrador y contacto de empresa";
-  public condiciones:string = "Éste apartado podrás modificar alguna información de tus datos.";
+  public condiciones:string = "Este apartado podrás modificar alguna información de tus datos.";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
 
   public formulario! : FormGroup;

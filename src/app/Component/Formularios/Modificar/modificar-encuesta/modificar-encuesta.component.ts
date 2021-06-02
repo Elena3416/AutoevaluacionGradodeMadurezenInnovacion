@@ -8,9 +8,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ModificarEncuestaComponent implements OnInit {
 
-  public TituloEmpresas:string = "Encuestas para empresas";
-  public Texto:string = "En éste apartado, habrá una serie de preguntas relacionadas a tu empresa, esta encuesta esta compuesta por diez preguntas, y estan relacionadas con opción multiple de menor a mayor, donde la primera opción es completamente de acuerdo y la última opción es completamente en desacuerdo, No esperes más ¡Comenzamos!.";
-  public btnFinalizar:string = "Completar Encuesta";
+  public TituloEmpresas:string = "Modificar Encuesta";
+  public Texto:string = "En este apartado, habrá una serie de preguntas relacionadas a tu empresa, esta encuesta esta compuesta por diez preguntas, y estan relacionadas con opción multiple de menor a mayor, donde la primera opción es completamente de acuerdo y la última opción es completamente en desacuerdo, No esperes más ¡Comenzamos!.";
+  public btnFinalizar:string = "Modificar Encuesta";
   public pregunta1:string = "1.-¿Cuánto tiempo llevas utilizando nuestro producto/servicio?";
   public pregunta2:string = "2.-¿Con qué frecuencia utilizas nuestro producto/servicio?";
   public pregunta3:string = "3.-En general, ¿qué tan satisfecho está usted con nuestro producto/servicio?";

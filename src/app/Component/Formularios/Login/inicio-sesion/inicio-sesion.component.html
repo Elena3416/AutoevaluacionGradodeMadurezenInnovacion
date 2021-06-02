@@ -21,7 +21,7 @@
       <div class="form-group" [formGroup]="formulario">
         <label for="" class="font-weight-bold">{{Password}}</label>
         <mat-form-field class="w-100">
-          <input matInput type="text" [ngClass]="{
+          <input matInput type="password" [ngClass]="{
               'is-valid': Validarform('Password').error == false,
               'is-invalid': Validarform('Password').error == true
           }" formControlName="Password">

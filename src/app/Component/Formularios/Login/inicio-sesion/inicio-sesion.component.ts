@@ -13,15 +13,15 @@ export class InicioSesionComponent implements OnInit {
 
    //informacion del html
    public InicioSesion:string = "Iniciar Sesión";
-   public CorreoElectronico:string = "Ingresa tu correo electrónico: *";
-   public Password:string = "Ingresa tu contraseña: *";
+   public CorreoElectronico:string = "Correo Electrónico: *";
+   public Password:string = "Contraseña: *";
    public ButtonInicioSesion:string = "Inicia Sesion";
    public linkolvidarpassword:string = "Cambiar contraseña";
    public linkregistrate:string = "Registrate aquí";
    public parrafo1:string = "Olvidaste tu contraseña, no te preocupes, puedes cambiarla en este link de abajo.";
    public parrafo2:string = "Aún no te has registrado, puedes registrate aquí en el link de abajo.";
    public parrafo3:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
-   public parrafo4:string = "Para registrar como usuario es necesario darle click en el de abajo";
+   public parrafo4:string = "Para registrar como usuario es necesario darle click en el de abajo.";
    public LinkRegistrarUsuario:string = "Registrar Usuario";
 
     //propiedad formulario
@@ -64,7 +64,7 @@ export class InicioSesionComponent implements OnInit {
    }
 
    public AdminRegister():void{
-     this.router.navigate(["registraradministracion"]);
+     this.router.navigate(["registraradministrador"]);
    }
 
    hideModal():void {

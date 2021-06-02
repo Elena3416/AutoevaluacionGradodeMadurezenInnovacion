@@ -10,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CambioPasswordComponent implements OnInit {
 
-  public CambiarPassword:string = "Cambio de contraseña";
+  public CambiarPassword:string = "Cambio de Contraseña";
   public Email:string = "Correo Electrónico: *"; 
-  public Informacion:string = "Si olvidaste tu contraseña, no te preocupes en éste apartado, tienes la opción de crear una nueva contraseña para que puedas seguir utilizando la página.";
+  public Informacion:string = "Si olvidaste tu contraseña, no te preocupes en este apartado, tienes la opción de crear una nueva contraseña para que puedas seguir utilizando la página.";
   public ButtonRegUsuario:string = "Cambiar contraseña";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
 

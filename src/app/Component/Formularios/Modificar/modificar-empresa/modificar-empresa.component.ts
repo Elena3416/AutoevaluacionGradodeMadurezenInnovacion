@@ -12,16 +12,16 @@ import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 export class ModificarEmpresaComponent implements OnInit {
 
   //informacion del html
-  public UpdateEmpresa:string = "Modificar información de la Empresa";
-  public Identificacion:string = "Ingresa el RFC de la Empresa: *";
-  public NombreEmpresa:string = "Ingresa el Nombre de la Empresa: *";
-  public Cluster:string = "Ingresa el/los clústers al que pertenece la Empresa: *";
-  public GiroEmpresa:string = "Ingresa el Giro de la Empresa: *";
-  public Pais:string = "Selecciona País: *";
-  public Estado:string = "Selecciona Estado: *";
-  public Municipio:string = "Selecciona Municipio: *";
+  public UpdateEmpresa:string = "Modificar Empresa";
+  public Identificacion:string = "RFC de la Empresa: *";
+  public NombreEmpresa:string = "Nombre de la Empresa: *";
+  public Cluster:string = "Clúster al que pertenece la Empresa: *";
+  public GiroEmpresa:string = "Giro de la Empresa: *";
+  public Pais:string = "País: *";
+  public Estado:string = "Estado: *";
+  public Municipio:string = "Municipio: *";
   public ButtonUpdateEmpresa:string = "Modificar Empresa";
-  public condiciones:string = "En éste apartado podrás modificar alguna información de tu empresa.";
+  public condiciones:string = "En este apartado podrás modificar alguna información de tu empresa.";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
 
   //propiedad formulario

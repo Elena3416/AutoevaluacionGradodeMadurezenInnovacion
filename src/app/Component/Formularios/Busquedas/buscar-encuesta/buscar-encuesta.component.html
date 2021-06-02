@@ -1,12 +1,13 @@
 <app-nav-bar></app-nav-bar>
 <div class="container shadow-lg p-3 mb-5 mt-5 bg-light rounded w-100">
     <form action="" [formGroup]="formulario">
-        <div class="row mt-2">
+        <div class="row">
             <div class="col-12">
                 <h1 class="display-4 text-med text-center font-weight-bold">{{Titulo}}</h1>
             </div>
         </div>
-        <div class="row mt-2">
+        <hr>
+        <div class="row">
             <div class="col-12">
                 <h3 class="text-center">{{Mensaje}}</h3>
             </div>
@@ -33,7 +34,7 @@
         <div class="row">
             <div class="col-12">
                 <button type="button" [disabled]="formulario.invalid" name="" id=""
-                    class="btn btn-success btn-lg btn-block mt-2">
+                    class="btn btn-dark btn-lg btn-block mt-2">
                     {{btnBuscarEncuesta}}
                 </button>
             </div>
@@ -44,11 +45,11 @@
             <table class="table table-striped mt-3">
                 <thead>
                     <tr>
-                        <th scope="col">Id_Encuesta</th>
+                        <th scope="col">Codigo Encuesta</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
-                        <th scope="col">Fecha Vigente</th>
-                        <th scope="col">Fecha Registro</th>
+                        <th scope="col">Fecha_Vigente</th>
+                        <th scope="col">Fecha_Registro</th>
                         <th scope="col">Status</th>
                     </tr>
                 </thead>

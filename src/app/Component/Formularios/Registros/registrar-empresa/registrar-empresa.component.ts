@@ -13,15 +13,15 @@ export class RegistrarEmpresaComponent implements OnInit {
 
   //informacion del html
   public RegEmpresa:string = "Registro de Empresa";
-  public Identificacion:string = "Ingresa el RFC de la Empresa: *";
-  public NombreEmpresa:string = "Ingresa el Nombre de la Empresa: *";
-  public Cluster:string = "Ingresa el/los clústers al que pertenece la Empresa: *";
-  public GiroEmpresa:string = "Ingresa el Giro de la Empresa: *";
-  public Pais:string = "Selecciona País: *";
-  public Estado:string = "Selecciona Estado: *";
-  public Municipio:string = "Selecciona Municipio: *";
+  public Identificacion:string = "RFC de la Empresa: *";
+  public NombreEmpresa:string = "Nombre de la Empresa: *";
+  public Cluster:string = "Asociaciones, Clústers, Cámaras: *";
+  public GiroEmpresa:string = "Giro de la Empresa: *";
+  public Pais:string = "País: *";
+  public Estado:string = "Estados: *";
+  public Municipio:string = "Municipios: *";
   public ButtonRegEmpresa:string = "Registrar Empresa";
-  public condiciones:string = "En éste apartado, podrás registrar a tu empresa, en donde conocerás el grado de madurez.";
+  public condiciones:string = "En este apartado, podrás registrar a tu empresa, en donde conocerás el grado de madurez.";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
 
   //propiedad formulario
@@ -48,13 +48,6 @@ export class RegistrarEmpresaComponent implements OnInit {
         RxwebValidators.upperCase(),
         RxwebValidators.alphaNumeric(),
         RxwebValidators.maxLength({value:13})
-      ]),
-
-      nombreempresa: new FormControl(null, [
-        RxwebValidators.required(),
-        RxwebValidators.pattern({expression:{onlyAlpha: /^[A-Za-zÁÉÍÓÚáéíóúñÑ]+$/}}),
-        RxwebValidators.minLength({value:5}),
-        RxwebValidators.maxLength({value:30})
       ]),
 
       cluster: new FormControl(null, [

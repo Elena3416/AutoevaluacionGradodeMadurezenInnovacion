@@ -11,11 +11,11 @@ import { RxwebValidators } from '@rxweb/reactive-form-validators';
 })
 export class NewPasswordComponent implements OnInit {
 
-  public Titulo:string = "Ingresar nueva contraseña";
-  public Mensaje:string = "Si olvidaste tu contraseña, en éste apartado, tienes la opción de cambiar tu contraseña.";
-  public NewPassword:string = "Ingresa tu nueva contraseña: *";
+  public Titulo:string = "Nueva Contraseña";
+  public Mensaje:string = "Si olvidaste tu contraseña, en este apartado, tienes la opción de cambiar tu contraseña.";
+  public NewPassword:string = "Nueva contraseña: *";
   public ConfirmPassword:string = "Confirma tu contraseña: *";
-  public BtnSavePassword:string = "Guardar Contraseña";
+  public BtnSavePassword:string = "Guardar Nueva Contraseña";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
   public formulario!:FormGroup;
 

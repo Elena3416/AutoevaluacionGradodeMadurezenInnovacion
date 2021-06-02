@@ -11,10 +11,10 @@ import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 export class RegistrarUsuarioComponent implements OnInit {
 
   public RegistrarUsuario:string = "Registrar Usuario";
-  public Informacion:string = "En éste apartado puedes registrar a tus colaboradores como usuario.";
-  public Username:string = "Ingresa tu nombre de usuario: *"; 
-  public Password:string = "Ingresa tu contraseña: *"; 
-  public ButtonRegUsuario:string = "Cambiar contraseña";
+  public Informacion:string = "En este apartado puedes registrar a tus colaboradores como usuario.";
+  public Username:string = "Nombre de Usuario: *"; 
+  public Password:string = "Contraseña: *"; 
+  public ButtonRegUsuario:string = "Registrar Usuario";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
 
   public formulario!: FormGroup;

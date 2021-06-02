@@ -12,9 +12,9 @@ import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 export class BuscarUsuarioComponent implements OnInit {
 
   public Titulo: string = "Búsqueda Usuario";
-  public Mensaje: string = "En éste apartado, podrás buscar tu información como usuario y tendrás la oportunidad de modificar tus datos."
+  public Mensaje: string = "En este apartado, podrás buscar tu información como usuario y tendrás la oportunidad de modificar tus datos."
   public buscarusuario: string = "Buscar Usuario";
-  public UserName: string = "Ingresa tu nombre de usuario:";
+  public UserName: string = "Nombre de usuario: *";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
   public formulario!: FormGroup;
 

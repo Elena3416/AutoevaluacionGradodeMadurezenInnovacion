@@ -10,9 +10,8 @@ import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
   styleUrls: ['./eliminar-empresa.component.css']
 })
 export class EliminarEmpresaComponent implements OnInit {
-  public Titulo:string = "Eliminar empresa";
-  public Mensaje:string = "En éste apartado, sólo el administrador podrá eliminar algún dato de la empresa, búscandola por el RFC de tu empresa";
-  public Etiqueta:string = "Busca el RFC de la empresa: *";
+  public Titulo:string = "Eliminar Empresa";
+  public Etiqueta:string = "RFC de la empresa: *";
   public btnBuscarEmpresa:string = "Eliminar empresa";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
   public formulario! : FormGroup;

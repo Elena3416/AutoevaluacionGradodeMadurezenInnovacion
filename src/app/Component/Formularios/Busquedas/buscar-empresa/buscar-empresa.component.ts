@@ -10,12 +10,17 @@ import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
   styleUrls: ['./buscar-empresa.component.css']
 })
 export class BuscarEmpresaComponent implements OnInit {
-  public Titulo:string = "Búsqueda empresa";
-  public Mensaje:string = "En éste apartado, puedes modificar algún dato de tu empresa, búscandola por el RFC de tu empresa";
-  public Etiqueta:string = "Busca el RFC de la empresa:"
+  public Titulo:string = "Búsqueda Empresa";
+  public Mensaje:string = "En este apartado, puedes modificar algún dato de tu empresa, buscándola por el RFC de tu empresa.";
+  public Etiqueta:string = "RFC de la empresa: *"
   public btnBuscarEmpresa:string = "Buscar empresa";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
   public formulario! : FormGroup;
+  public opcion:string =  "Selecciona una opción";
+  public industria: string = "Por la industria";
+  public cluster: string = "Por el clúster";
+  public estado: string = "Por el estado";
+  public pais: string = "Por el país";
 
   constructor(private AWMsgErrors:MessageerrorsService, private router:Router) { }
 
@@ -26,11 +31,10 @@ export class BuscarEmpresaComponent implements OnInit {
   public CrearForm():void {
     this.formulario = new FormGroup({
 
-      rfcempresa: new FormControl(null,
+      filtros: new FormControl(null,
         [
           RxwebValidators.required(),
-          RxwebValidators.pattern({ expression: { onlyAlpha: /^[A-Za-zÁÉÍÓÚáéíóúñÑ]+$/ } }),
-          RxwebValidators.maxLength({ value: 13 })])
+          RxwebValidators.requiredTrue()])
     });
   }
 

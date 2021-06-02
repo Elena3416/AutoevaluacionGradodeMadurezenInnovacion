@@ -12,19 +12,18 @@ import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 })
 export class RegistrarAdministradorComponent implements OnInit {
   
-  public RegistrarUsuarios:string = "Registro de usuario Administrador";
-  public FullName:string = "Ingresa tu Nombre Completo: *";
-  public LastName:string = "Ingresa tu Apellido Paterno: *";
-  public MotherLastName:string = "Ingresa tu Apellido Materno: *";
-  public Email:string = "Ingresa tu Correo Electrónico: *";
-  public Contrasenia:string = "Ingresa tu Contraseña: *";
-  public RepetirContrasenia:string = "Ingresa de nuevo tu Contraseña: *";
-  public Phone:string = "Ingresa tu Teléfono celular: *";
-  public BirthDate:string = "Ingresa tu Fecha Nacimiento: *";
-  public PositionCompany:string = "Selecciona el puesto de la empresa a la que perteneces: *";
-  public ButtonRegUsuario:string = "Registrar Usuario";
-  public Registroadmon:string = "Registro de administrador y contacto de empresa";
-  public condiciones:string = "Éste registro es para la persona que será el punto de contacto administrativo de la empresa, si tu empresa ya esta registrada y deseas tener tu acceso pídele al administrador que te registre como colaborador.";
+  public RegistrarUsuarios:string = "Registro de Administrador y Contacto de Empresa";
+  public FullName:string = "Nombres: *";
+  public LastName:string = "Apellido Paterno: *";
+  public MotherLastName:string = "Apellido Materno: *";
+  public Email:string = "Correo Electrónico: *";
+  public Contrasenia:string = "Contraseña: *";
+  public RepetirContrasenia:string = "Confirma tu Contraseña: *";
+  public Phone:string = "Teléfono de contacto: *";
+  public BirthDate:string = "Fecha Nacimiento: *";
+  public PositionCompany:string = "Puesto de la empresa a la que perteneces: *";
+  public BtnRegistroadmon:string ="Registrate";
+  public condiciones:string = "Este registro es para la persona que será el punto de contacto administrativo de la empresa, si tu empresa ya esta registrada y deseas tener tu acceso pídele al administrador que te registre como colaborador.";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
 
   public formulario! : FormGroup;

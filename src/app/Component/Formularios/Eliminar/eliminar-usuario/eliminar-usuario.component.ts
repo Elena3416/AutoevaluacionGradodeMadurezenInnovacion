@@ -12,9 +12,8 @@ import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 export class EliminarUsuarioComponent implements OnInit {
 
   public Titulo: string = "Eliminar Usuario";
-  public Mensaje: string = "En éste apartado, sólo el administrador podrá buscar el usuario y eliminarlo, esto es antes de guardar su información."
   public eliminarusuario: string = "Eliminar Usuario";
-  public UserName: string = "Ingresa tu nombre de usuario:";
+  public UserName: string = "Nombre de usuario:";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
   public formulario!: FormGroup;
 

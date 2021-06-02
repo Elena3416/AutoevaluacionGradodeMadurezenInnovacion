@@ -11,9 +11,8 @@ import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 })
 export class EliminarEncuestaComponent implements OnInit {
 
-  public Titulo:string = "Eliminar encuesta";
-  public Mensaje:string = "En éste apartado, sólo el administrador podrá buscar la encuesta y eliminar, antes de haber sido contestada y guardada";
-  public Etiqueta:string = "Busca el número de versión por encuesta: *"
+  public Titulo:string = "Eliminar Encuesta";
+  public Etiqueta:string = "Número de versión por encuesta: *"
   public btnEliminarEncuesta:string = "Eliminar encuesta";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
   public formulario! : FormGroup;
