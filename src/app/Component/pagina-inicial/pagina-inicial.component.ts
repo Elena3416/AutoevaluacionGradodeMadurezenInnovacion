@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginaInicialComponent implements OnInit {
 
-  public logo:string = "assets/IMG/logo2.jpg";
+  public logo:string = "assets/IMG/logo_chico.png";
   public titulo:string = "Nuevo León 4.0";
   public Autoevaluacion:string = "Autoevaluación";
   public Madurez:string = "Grado de Madurez en Innovación";

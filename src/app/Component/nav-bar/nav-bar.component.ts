@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavBarComponent implements OnInit {
 
   public titulo:string = "Nuevo León 4.0";
-  public logo:string = "assets/IMG/logo2.jpg";
+  public logo:string = "assets/IMG/logo_chico.png";
   public Empresa:string = "Mi empresa";
   public Encuestas:string = "Mis Encuestas";
   public Colaboradores:string = "Mis colaboradores";

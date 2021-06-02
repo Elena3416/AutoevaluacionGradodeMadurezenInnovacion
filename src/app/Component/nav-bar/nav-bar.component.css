@@ -11,3 +11,8 @@ a > mat-icon{
 #color{
   color: #000;
 }
+
+#cuadro{
+  display: flex;
+  flex-flow: row wrap;
+}
