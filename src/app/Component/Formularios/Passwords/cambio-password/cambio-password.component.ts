@@ -13,7 +13,7 @@ export class CambioPasswordComponent implements OnInit {
   public CambiarPassword:string = "Cambio de Contraseña";
   public Email:string = "Correo Electrónico: *"; 
   public Informacion:string = "Si olvidaste tu contraseña, no te preocupes en este apartado, tienes la opción de crear una nueva contraseña para que puedas seguir utilizando la página.";
-  public ButtonRegUsuario:string = "Cambiar contraseña";
+  public ButtonRegUsuario:string = "Cambiar Contraseña";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
 
   public formulario!: FormGroup;

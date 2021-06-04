@@ -12,7 +12,7 @@ import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 export class EliminarEmpresaComponent implements OnInit {
   public Titulo:string = "Eliminar Empresa";
   public Etiqueta:string = "RFC de la empresa: *";
-  public btnBuscarEmpresa:string = "Eliminar empresa";
+  public btnBuscarEmpresa:string = "Eliminar Empresa";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
   public formulario! : FormGroup;
 

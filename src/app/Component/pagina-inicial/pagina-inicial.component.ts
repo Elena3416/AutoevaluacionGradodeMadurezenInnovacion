@@ -17,7 +17,7 @@ export class PaginaInicialComponent implements OnInit {
   public parrafo2:string = "Eres emprendedor, pero no sabes ¿En qué grado de madurez está tu empresa en relación a la economía que hoy vivimos hoy en día?";
   public parrafo3:string = "No te preocupes más, éstas en la página correcta, aquí podrás registrar tu empresa, completar una encuesta, e inmediatamente visualizarás una gráfica de acuerdo a lo que completaste en la encuesta y así tendrás conocimiento del grado de madurez de tu empresa. Así que no esperes más únete con nosotros.";
   public parrafo4: string = "¡Registrate!| ¡Te esperamos!";
-  public btnregistrate:string = "REGÍSTRATE";
+  public btnregistrate:string = "REGISTRATE";
   public btniniciasesion:string = "INICIA SESIÓN";
   public iniciarsesion:string = "Iniciar sesión";
   

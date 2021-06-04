@@ -3,7 +3,7 @@
     <form class="form" [formGroup]="formulario">
     <div class="row">
       <div class="col-12">
-        <h1 class="display-4 text-med text-center font-weight-bold">{{UpdateEmpresa}}</h1>
+        <h1 class="display-4 text-med text-center font-weight-bold">{{ModificarEmpresa}}</h1>
       </div>
     </div>
     <hr>
@@ -31,25 +31,28 @@
     {{Validarform('rfc').message}}</div>
   </div>
     <div class="col-6">
-        <div class="form-group" [formGroup]="formulario">
-        <label for="" class="font-weight-bold">{{NombreEmpresa}}</label>
-      <mat-form-field appearance="fill" class="w-100">
-        <mat-select [ngClass]="{
-          'is-valid': Validarform('nombreempresa').error == false,
-          'is-invalid': Validarform('nombreempresa').error == true
-         }"
-         formControlName="nombreempresa">
-          <mat-option >
-              Selecciona tu empresa
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div *ngIf="Validarform('nombreempresa').error"
-    class="invalid-feedback d-block mb-3 text-center"
-    style="font-size: 13px; color: red;">
-      {{Validarform('nombreempresa').message}}
-    </div>
+      <div class="form-group" [formGroup]="formulario">
+        <label for="" class="font-weight-bold">{{Pais}}</label>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-select [ngClass]="{
+            'is-valid': Validarform('pais').error == false,
+            'is-invalid': Validarform('pais').error == true
+           }"
+           formControlName="pais">
+            <mat-option >
+                Selecciona tu pais
+            </mat-option>
+            <mat-option *ngFor="let country of NameCountries" [value]="country">
+              {{country}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="Validarform('pais').error"
+        class="invalid-feedback d-block mb-3 text-center"
+        style="font-size: 13px; color: red;">
+          {{Validarform('pais').message}}
+        </div>
+      </div>
       </div>
     </div>
     <div class="row">
@@ -76,22 +79,22 @@
       </div>
       <div class="col-6">
         <div class="form-group" [formGroup]="formulario">
-          <label for="" class="font-weight-bold">{{GiroEmpresa}}</label>
+          <label for="" class="font-weight-bold">{{Estado}}</label>
           <mat-form-field appearance="fill" class="w-100">
             <mat-select [ngClass]="{
-              'is-valid': Validarform('giroempresa').error == false,
-              'is-invalid': Validarform('giroempresa').error == true
+              'is-valid': Validarform('estado').error == false,
+              'is-invalid': Validarform('estado').error == true
              }"
-             formControlName="giroempresa">
+             formControlName="estado">
               <mat-option >
-                  Selecciona el giro de la empresa
+                  Selecciona tu estado
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <div *ngIf="Validarform('giroempresa').error"
+          <div *ngIf="Validarform('estado').error"
           class="invalid-feedback d-block mb-3 text-center"
           style="font-size: 13px; color: red;">
-            {{Validarform('giroempresa').message}}
+            {{Validarform('estado').message}}
           </div>
       </div>
     </div>
@@ -99,52 +102,26 @@
   <div class="row">
     <div class="col-6">
       <div class="form-group" [formGroup]="formulario">
-        <label for="" class="font-weight-bold">{{Pais}}</label>
+        <label for="" class="font-weight-bold">{{GiroEmpresa}}</label>
         <mat-form-field appearance="fill" class="w-100">
           <mat-select [ngClass]="{
-            'is-valid': Validarform('pais').error == false,
-            'is-invalid': Validarform('pais').error == true
+            'is-valid': Validarform('giroempresa').error == false,
+            'is-invalid': Validarform('giroempresa').error == true
            }"
-           formControlName="pais">
+           formControlName="giroempresa">
             <mat-option >
-                Selecciona tu pais
-            </mat-option>
-            <mat-option *ngFor="let country of NameCountries" [value]="country">
-              {{country}}
+                Selecciona el giro de la empresa
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <div *ngIf="Validarform('pais').error"
+        <div *ngIf="Validarform('giroempresa').error"
         class="invalid-feedback d-block mb-3 text-center"
         style="font-size: 13px; color: red;">
-          {{Validarform('pais').message}}
+          {{Validarform('giroempresa').message}}
         </div>
       </div>
     </div>
     <div class="col-6">
-      <div class="form-group" [formGroup]="formulario">
-        <label for="" class="font-weight-bold">{{Estado}}</label>
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-select [ngClass]="{
-            'is-valid': Validarform('estado').error == false,
-            'is-invalid': Validarform('estado').error == true
-           }"
-           formControlName="estado">
-            <mat-option >
-                Selecciona tu estado
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <div *ngIf="Validarform('estado').error"
-        class="invalid-feedback d-block mb-3 text-center"
-        style="font-size: 13px; color: red;">
-          {{Validarform('estado').message}}
-        </div>
-    </div>
-  </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
       <div class="form-group" [formGroup]="formulario">
         <label for="" class="font-weight-bold">{{Municipio}}</label>
         <mat-form-field appearance="fill" class="w-100">
@@ -164,19 +141,19 @@
           {{Validarform('municipio').message}}
         </div>
       </div>
-    </div>
   </div>
-  <div class="row">
+  </div>
+  <div class="row mt-2">
     <div class="col-12">
       <button [disabled]="formulario.invalid" type="button" name="" id=""
-      class="btn btn-success btn-lg btn-block">{{ButtonUpdateEmpresa}}
+      class="btn btn-success btn-lg btn-block">{{ButtonModEmpresa}}
       </button>
     </div>
   </div>
   </form>
   <div class="row mt-3">
     <div class="col-12">
-      <p>{{parrafo1}}</p>
+      <p id="texto">{{parrafo1}}</p>
     </div>
   </div>
 </div>

@@ -13,7 +13,7 @@ export class BuscarEmpresaComponent implements OnInit {
   public Titulo:string = "Búsqueda Empresa";
   public Mensaje:string = "En este apartado, puedes modificar algún dato de tu empresa, buscándola por el RFC de tu empresa.";
   public Etiqueta:string = "RFC de la empresa: *"
-  public btnBuscarEmpresa:string = "Buscar empresa";
+  public btnBuscarEmpresa:string = "Buscar Empresa";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
   public formulario! : FormGroup;
   public opcion:string =  "Selecciona una opción";

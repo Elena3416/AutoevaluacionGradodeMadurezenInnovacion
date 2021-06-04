@@ -14,7 +14,7 @@ export class BuscarEncuestaComponent implements OnInit {
   public Titulo:string = "Búsqueda Encuesta";
   public Mensaje:string = "En este apartado, podrás buscar la encuesta y modificarla, se buscará por el número de versión de encuesta.";
   public Etiqueta:string = "Número de versión por encuesta: *"
-  public btnBuscarEncuesta:string = "Buscar encuesta";
+  public btnBuscarEncuesta:string = "Buscar Encuesta";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
   public formulario! : FormGroup;
 
