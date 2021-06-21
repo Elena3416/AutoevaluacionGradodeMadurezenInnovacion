@@ -12,23 +12,24 @@
                 <div class="form-group">
                     <label for="" class="font-weight-bold">{{Etiqueta}}</label>
                     <mat-form-field class="w-100">
-                        <input matInput type="text"
+                        <input matInput type="number" 
                         [ngClass]="{
-                            'is-valid': Validarform('rfcempresa').error == false,
-                            'is-invalid': Validarform('rfcempresa').error == true
+                            'is-valid': Validarform('NumeroEmpresa').error == false,
+                            'is-invalid': Validarform('NumeroEmpresa').error == true
                         }"
-                        formControlName="rfcempresa">
+                        formControlName="NumeroEmpresa">
                     </mat-form-field>
                 </div>
-                <div *ngIf="Validarform('rfcempresa').error"
+                <div *ngIf="Validarform('NumeroEmpresa').error"
                 class="invalid-feedback d-block mb-3 text-center"
                 style="font-size:13px; color: red;">
-                {{Validarform('rfcempresa').message}}</div>
-            </div>
+                {{Validarform('NumeroEmpresa').message}}</div>
+        </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <button type="button" [disabled]="formulario.invalid" name="" id="" class="btn btn-success btn-lg btn-block mt-2">
+                <button type="submit" [disabled]="formulario.invalid" name="" id=""
+                 class="btn btn-success btn-lg btn-block mt-2">
                     {{btnBuscarEmpresa}}
                 </button>
             </div>

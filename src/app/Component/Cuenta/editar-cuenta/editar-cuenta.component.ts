@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
-import { usuarioI } from 'src/app/Interfaces/UsuarioInterface';
 import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 
 @Component({
@@ -28,7 +27,6 @@ export class EditarCuentaComponent implements OnInit {
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
 
   public formulario! : FormGroup;
-  public Usuario: usuarioI[] = [];
   
   constructor(private AWMsg:MessageerrorsService, 
     private router:Router) { }

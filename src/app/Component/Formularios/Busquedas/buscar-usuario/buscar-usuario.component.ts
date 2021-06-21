@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
+import { PuestosService } from 'src/app/Services/puestos.service';
+import { PuestosI } from 'src/app/Interfaces/Puesto.interface';
 
 @Component({
   selector: 'app-buscar-usuario',
@@ -17,8 +19,11 @@ export class BuscarUsuarioComponent implements OnInit {
   public UserName: string = "Nombre de usuario: *";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
   public formulario!: FormGroup;
+  ListaUsuario :any[] = [];
+  puestos: PuestosI[] = [];
 
-  constructor(private AWMsgErrors:MessageerrorsService, private router:Router) { }
+  constructor(private AWMsgErrors:MessageerrorsService, private router:Router,
+    private puesto:PuestosService) { }
 
   ngOnInit(): void {
     this.CrearForm();
@@ -48,5 +53,15 @@ export class BuscarUsuarioComponent implements OnInit {
 
   public userdelete():void{
     this.router.navigate(["eliminarusuario"]);
+  }
+
+  getPuestos(){
+    this.puesto.GetListPuestos().subscribe(
+      res => {
+        this.puestos = res;
+      }, err =>{
+        console.log(err);
+      }
+    );
   }
 }

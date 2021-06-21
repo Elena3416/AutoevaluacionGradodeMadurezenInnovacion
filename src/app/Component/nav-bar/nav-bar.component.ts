@@ -1,5 +1,4 @@
 import { Router } from '@angular/router';
-import { SessionService } from './../../Services/session.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -25,7 +24,7 @@ export class NavBarComponent implements OnInit {
   public Cerrarsesion:string = "Cerrar Sesión"; 
 
   constructor(
-    private session:SessionService,
+
     private router:Router
   ) { }
   
@@ -44,7 +43,7 @@ export class NavBarComponent implements OnInit {
   // }
 
   closeSession(){
-    this.session.closeSession();
+    // this.session.closeSession();
     this.router.navigateByUrl('landing');
   }
 

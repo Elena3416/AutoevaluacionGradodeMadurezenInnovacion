@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <div class="container shadow-lg p-3 mb-5 mt-5 bg-light rounded w-100 h-100">
-    <form class="form" [formGroup]="formulario">
+    <form class="form" [formGroup]="formulario" (onSubmit)="registrarusuario()">
         <div class="row">
             <div class="col-12">
                 <h1 class="display-4 text-med text-center font-weight-bold">{{RegistrarUsuario}}</h1>
@@ -17,7 +17,8 @@
                 <div class="form-group" [formGroup]="formulario">
                     <label for="" class="font-weight-bold">{{Username}}</label>
                     <mat-form-field class="w-100">
-                        <input matInput type="text" [ngClass]="{
+                        <input matInput type="text" 
+                        [ngClass]="{
                             'is-valid': Validarform('nombreusuario').error == false,
                             'is-invalid': Validarform('nombreusuario').error == true
                         }" formControlName="nombreusuario">
@@ -34,7 +35,8 @@
                 <div class="form-group" [formGroup]="formulario">
                     <label for="" class="font-weight-bold">{{Password}}</label>
                     <mat-form-field class="w-100">
-                        <input matInput type="text" [ngClass]="{
+                        <input matInput type="password"
+                        [ngClass]="{
                             'is-valid': Validarform('password').error == false,
                             'is-invalid': Validarform('password').error == true
                         }" formControlName="password">
@@ -48,7 +50,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <button [disabled]="formulario.invalid" type="button"
+                <button type="submit" [disabled]="formulario.invalid"
                     class="btn btn-primary btn-lg btn-block">{{ButtonRegUsuario}}</button>
             </div>
         </div>

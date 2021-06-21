@@ -49,4 +49,8 @@ export class BuscarEncuestaComponent implements OnInit {
   public deletesurvey(): void {
     this.router.navigate(["eliminarencuesta"]);
   }
+
+  BuscarEncuesta(){
+    
+  }
 }

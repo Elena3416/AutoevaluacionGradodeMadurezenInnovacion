@@ -14,7 +14,7 @@ export class InicioSesionComponent implements OnInit {
    //informacion del html
    public InicioSesion:string = "Iniciar Sesión";
    public CorreoElectronico:string = "Correo Electrónico: *";
-   public Password:string = "Contraseña: *";
+   public Contrasena:string = "Contraseña: *";
    public ButtonInicioSesion:string = "Inicia Sesion";
    public linkolvidarpassword:string = "Cambiar contraseña";
    public linkregistrate:string = "Registrate aquí";
@@ -26,13 +26,13 @@ export class InicioSesionComponent implements OnInit {
 
     //propiedad formulario
    public formulario!: FormGroup;
-   public log:boolean = false;
  
-   constructor(private AWMsgErrSrv:MessageerrorsService, 
+   constructor(private AWMsgErrSrv:MessageerrorsService,
     private router:Router) { }
  
    ngOnInit(): void {
      this.CreateForm();
+
    }
  
    public CreateForm():void{
@@ -72,11 +72,21 @@ export class InicioSesionComponent implements OnInit {
    modal?.click();
   }
 
-  public INICIO():void{
-    this.router.navigate(["inicio"]);
-  }
+  // public INICIO():void{
+  //   this.router.navigate(["inicio"]);
+  // }
   
   public UserRegister():void{
     this.router.navigate(["registrarusuario"]);
   }
- }
+
+  // ResetForm(){
+  //   if(this.formulario!=null){
+  //     this.formulario.reset();
+  //     this.login = {
+  //       email: '',
+  //       password:''
+  //     }
+  //   }
+  // }
+}

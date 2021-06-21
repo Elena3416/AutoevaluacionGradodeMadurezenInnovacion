@@ -1,8 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
-import { CountryService } from 'src/app/Services/country.service';
-import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MessageerrorsService } from '../../../../Services/messageerrors.service';
+import { Component, OnInit } from '@angular/core';
+import { PaisI } from "src/app/Interfaces/Pais.interface";
+import { EstadosMexicoI } from "src/app/Interfaces/EstadosMexico.interface";
+import { MunicipioI } from "src/app/Interfaces/Municipios.interface";
+import { GiroI } from "src/app/Interfaces/Giro.interface";
+import { ClusterI } from "src/app/Interfaces/Cluster.interface";
+import { EmpresaService } from "src/app/Services/empresa.service";
+import { PaisService } from "src/app/Services/pais.service";
+import { EstadosService } from "src/app/Services/estados.service";
+import { MunicipioService } from "src/app/Services/municipio.service";
+import { ClusterService } from "src/app/Services/cluster.service";
+import { GiroService } from "src/app/Services/giro.service";
 
 @Component({
   selector: 'app-modificar-empresa',
@@ -26,18 +36,25 @@ export class ModificarEmpresaComponent implements OnInit {
  
    //propiedad formulario
    public formulario!:FormGroup;
-   public NameCountries:Array<string> = [];
-   public NameMunicipios:Array<string> = [];
+   pais:PaisI[] = [];
+   estado:EstadosMexicoI[] = [];
+   municipio:MunicipioI[] = [];
+   cluster:ClusterI[] = [];
+   giro:GiroI[] = [];
  
-   constructor(private AWMsgError:MessageerrorsService, private country:CountryService, 
-     private municipios:CountryService) {
-     this.country.GetCountries().subscribe((country:string)  => this.NameCountries.push(country));
-     this.municipios.GetMunicipios().subscribe((municipio:string) => this.NameMunicipios.push(municipio));
+  constructor(private AWMsgError:MessageerrorsService, 
+    private empresaservices:EmpresaService, private paisesservices:PaisService, 
+    private estadosmexservices:EstadosService, private municipioservices: MunicipioService, 
+    private clustersservices:ClusterService, private giroservices:GiroService) {
     }
  
    ngOnInit(): void {
-     this.CreateForm();
-     
+    this.CreateForm(); 
+    this.getPaises();
+    this.getEstados();
+    this.getMunicipios();
+    this.getCluster();
+    this.getGiro();
    }
  
    public CreateForm():void{
@@ -81,4 +98,66 @@ export class ModificarEmpresaComponent implements OnInit {
  
      return this.AWMsgError.ErrorMessage(this.formulario.controls[control].errors);
    }
+
+   public getPaises(){
+    this.paisesservices.GetListPais().subscribe(
+        res => {
+         this.pais = res; 
+        }, err => {
+        console.error(err);
+        }
+    );
+  }
+
+  public getEstados(){
+    //manda llamar al metodo del service to print the answer o el error si existe un error
+    this.estadosmexservices.GetListEstado().subscribe(
+      res => {
+        this.estado = res;
+      }, err => {
+        console.error(err);
+      }
+    );
+  }
+
+  public getMunicipios(){
+    this.municipioservices.GetListMunicipio().subscribe(
+      res => {
+        this.municipio = res;
+      }, err => {
+        console.error(err);
+      }
+    );
+  }
+
+  public getCluster(){
+      this.clustersservices.GetListCluster().subscribe(
+        res => {
+          this.cluster = res;
+        }, err => {
+          console.error(err);
+        }
+      );
+    }
+
+  public getGiro(){
+    this.giroservices.GetListGiro().subscribe(
+      res => {
+        this.giro = res;
+      }, err => {
+        console.error(err);
+      } 
+    );
+  }
+
+  public ObtenerEmpresa(){
+    this.empresaservices.GetListEmpresa().subscribe(
+      data => {
+        console.log(data);
+        this.empresaservices = data;
+      }, error => {
+        console.log(error);
+      }
+    );
+  }
 }

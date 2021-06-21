@@ -11,6 +11,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatFormFieldModule} from "@angular/material/form-field";
 import { MatInputModule} from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select"; 
+import { MatRadioModule } from '@angular/material/radio';
 
 //Components
 import { AppComponent } from './app.component';
@@ -89,7 +90,8 @@ import { EditarCuentaComponent } from './Component/Cuenta/editar-cuenta/editar-c
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

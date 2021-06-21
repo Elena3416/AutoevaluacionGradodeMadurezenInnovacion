@@ -19,7 +19,7 @@
   <div class="row mt-3">
     <div class="col-12">
       <div class="form-group" [formGroup]="formulario">
-        <label for="" class="font-weight-bold">{{Password}}</label>
+        <label for="" class="font-weight-bold">{{Contrasena}}</label>
         <mat-form-field class="w-100">
           <input matInput type="password" [ngClass]="{
               'is-valid': Validarform('Password').error == false,
@@ -35,12 +35,12 @@
     </div>
   <div class="row">
     <div class="offset-md-4 col-12">
-      <mat-spinner *ngIf="log"></mat-spinner>
+      <mat-spinner></mat-spinner>
     </div>
   </div>
   <div class="row text-center">
     <div class="col-12">
-      <button type="submit" class="btn btn-info btn-lg btn-block" [disabled]="formulario.invalid" (click)="INICIO()"
+      <button type="submit" class="btn btn-info btn-lg btn-block" [disabled]="formulario.invalid"
         id="close-modal" data-dismiss="modal">{{ButtonInicioSesion}}
       </button>
     </div>
@@ -71,7 +71,7 @@
 </div>
 <div class="row text-center mt-3">
   <div class="col-12">
-    <a type="button" id="close-modal" data-dismiss="modal" class="font-weight-bold"
+    <a type="submit" id="close-modal" data-dismiss="modal" class="font-weight-bold"
       (click)="UserRegister()">{{LinkRegistrarUsuario}}</a>
   </div>
 </div>

@@ -1,8 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
-import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MessageerrorsService } from '../../../../Services/messageerrors.service';
+import { Component, OnInit } from '@angular/core';
+import { PaisI } from "src/app/Interfaces/Pais.interface";
+import { EstadosMexicoI } from "src/app/Interfaces/EstadosMexico.interface";
+import { MunicipioI } from "src/app/Interfaces/Municipios.interface";
+import { GiroI } from "src/app/Interfaces/Giro.interface";
+import { ClusterI } from "src/app/Interfaces/Cluster.interface";
+import { EmpresaService } from "src/app/Services/empresa.service";
+import { PaisService } from "src/app/Services/pais.service";
+import { EstadosService } from "src/app/Services/estados.service";
+import { MunicipioService } from "src/app/Services/municipio.service";
+import { ClusterService } from "src/app/Services/cluster.service";
+import { GiroService } from "src/app/Services/giro.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buscar-empresa',
@@ -16,25 +27,34 @@ export class BuscarEmpresaComponent implements OnInit {
   public btnBuscarEmpresa:string = "Buscar Empresa";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
   public formulario! : FormGroup;
-  public opcion:string =  "Selecciona una opción";
-  public industria: string = "Por la industria";
-  public cluster: string = "Por el clúster";
-  public estado: string = "Por el estado";
-  public pais: string = "Por el país";
+  pais:PaisI[] = [];
+  estado:EstadosMexicoI[] = [];
+  municipio:MunicipioI[] = [];
+  cluster:ClusterI[] = [];
+  giro:GiroI[] = [];
+  ListaEmpresa: any[] = [];
 
-  constructor(private AWMsgErrors:MessageerrorsService, private router:Router) { }
+  constructor(private AWMsgErrors:MessageerrorsService, 
+    private empresaservices:EmpresaService, private paisesservices:PaisService, 
+    private estadosmexservices:EstadosService, private municipioservices: MunicipioService, 
+    private clustersservices:ClusterService, private giroservices:GiroService, private router:Router) { }
 
   ngOnInit(): void {
     this.CrearForm();
+    this.getPaises();
+    this.getEstados();
+    this.getMunicipios();
+    this.getCluster();
+    this.getGiro();
   }
 
   public CrearForm():void {
     this.formulario = new FormGroup({
 
-      filtros: new FormControl(null,
+      NumeroEmpresa: new FormControl(null,
         [
           RxwebValidators.required(),
-          RxwebValidators.requiredTrue()])
+          RxwebValidators.digit()])
     });
   }
 
@@ -51,5 +71,67 @@ export class BuscarEmpresaComponent implements OnInit {
 
   public deletecompany():void{
     this.router.navigate(["eliminarempresa"]);
+  }
+
+  public getPaises(){
+    this.paisesservices.GetListPais().subscribe(
+        res => {
+         this.pais = res; 
+        }, err => {
+        console.error(err);
+        }
+    );
+  }
+
+  public getEstados(){
+    //manda llamar al metodo del service to print the answer o el error si existe un error
+    this.estadosmexservices.GetListEstado().subscribe(
+      res => {
+        this.estado = res;
+      }, err => {
+        console.error(err);
+      }
+    );
+  }
+
+  public getMunicipios(){
+    this.municipioservices.GetListMunicipio().subscribe(
+      res => {
+        this.municipio = res;
+      }, err => {
+        console.error(err);
+      }
+    );
+  }
+
+  public getCluster(){
+      this.clustersservices.GetListCluster().subscribe(
+        res => {
+          this.cluster = res;
+        }, err => {
+          console.error(err);
+        }
+      );
+    }
+
+  public getGiro(){
+    this.giroservices.GetListGiro().subscribe(
+      res => {
+        this.giro = res;
+      }, err => {
+        console.error(err);
+      } 
+    );
+  }
+
+  public ObtenerEmpresa(){
+    this.empresaservices.GetListEmpresa().subscribe(
+      data => {
+        console.log(data);
+        this.empresaservices = data;
+      }, error => {
+        console.log(error);
+      }
+    );
   }
 }

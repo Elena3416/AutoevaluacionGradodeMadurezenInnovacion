@@ -1,7 +1,10 @@
+import { PuestosI } from './../../../../Interfaces/Puesto.interface';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
+import { UsuarioService } from 'src/app/Services/usuario.service';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -19,15 +22,16 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   public formulario!: FormGroup;
   log: boolean = false;
+  puesto: PuestosI[] = [];
 
-  constructor(private AWMsgErrSrv:MessageerrorsService) { }
+  constructor(private AWMsgErrSrv:MessageerrorsService, private Usuario:UsuarioService,
+    private router:Router) { }
 
   ngOnInit() {
     this.CreateForm();
   }
 
   public CreateForm():void{
-    this.log = true;
     this.formulario = new FormGroup({
 
       nombreusuario: new FormControl(null, [
@@ -37,7 +41,7 @@ export class RegistrarUsuarioComponent implements OnInit {
 
       password: new FormControl(null, [
           RxwebValidators.required(),
-          RxwebValidators.password({validation: {maxLength: 10, minLength:8, digit:true, specialCharacter:true}}),
+          RxwebValidators.password({validation: {maxLength: 15, minLength:8, digit:true, specialCharacter:true}}),
         RxwebValidators.compare({fieldName:"password"})
       ])    
     });
@@ -50,4 +54,16 @@ export class RegistrarUsuarioComponent implements OnInit {
 
     return this.AWMsgErrSrv.ErrorMessage(this.formulario.controls[control].errors);
   }
+
+    // Inicio(){
+    //   this.router.navigate(["inicio"]);
+    // }
+
+    registrarusuario(){
+      const usuario:any = {
+        email:this.formulario.get("nombreusuario")?.value,
+        password:this.formulario.get("password")?.value
+      }
+      console.log(usuario);
+    }
 }

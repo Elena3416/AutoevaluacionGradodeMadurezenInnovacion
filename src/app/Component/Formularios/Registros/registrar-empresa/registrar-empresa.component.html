@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <div class="container shadow-lg p-3 mb-5 mt-5 bg-light rounded w-100">
-    <form class="form" [formGroup]="formulario">
+    <form class="form" [formGroup]="formulario" (onSubmit)="RegistrarEmpresa()">
     <div class="row">
       <div class="col-12">
         <h1 class="display-4 text-med text-center font-weight-bold">{{RegEmpresa}}</h1>
@@ -34,7 +34,8 @@
       <div class="form-group" [formGroup]="formulario">
         <label for="" class="font-weight-bold">{{Pais}}</label>
         <mat-form-field appearance="fill" class="w-100">
-          <mat-select [ngClass]="{
+          <mat-select
+          [ngClass]="{
             'is-valid': Validarform('pais').error == false,
             'is-invalid': Validarform('pais').error == true
            }"
@@ -42,8 +43,8 @@
             <mat-option >
                 Selecciona tu pais
             </mat-option>
-            <mat-option *ngFor="let country of NameCountries" [value]="country">
-              {{country}}
+            <mat-option *ngFor="let country of pais" [value]="country.Nombre_Pais">
+              {{country.Nombre_Pais}}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -60,13 +61,17 @@
         <div class="form-group" [formGroup]="formulario">
           <label for="" class="font-weight-bold">{{Cluster}}</label>
         <mat-form-field appearance="fill" class="w-100">
-        <mat-select [ngClass]="{
+        <mat-select
+        [ngClass]="{
           'is-valid': Validarform('cluster').error == false,
           'is-invalid': Validarform('cluster').error == true
          }"
          formControlName="cluster">
           <mat-option >
               Selecciona al cluster que perteneces
+          </mat-option>
+          <mat-option *ngFor="let clusters of cluster" [value]="clusters.Nombre_Cluster">
+            {{clusters.Nombre_Cluster}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -81,13 +86,17 @@
         <div class="form-group" [formGroup]="formulario">
           <label for="" class="font-weight-bold">{{Estado}}</label>
           <mat-form-field appearance="fill" class="w-100">
-            <mat-select [ngClass]="{
+            <mat-select
+            [ngClass]="{
               'is-valid': Validarform('estado').error == false,
               'is-invalid': Validarform('estado').error == true
              }"
              formControlName="estado">
               <mat-option >
                   Selecciona tu estado
+              </mat-option>
+              <mat-option *ngFor="let estados of estado" [value]="estados.Nombre_Estados">
+                {{estados.Nombre_Estados}}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -104,13 +113,17 @@
       <div class="form-group" [formGroup]="formulario">
         <label for="" class="font-weight-bold">{{GiroEmpresa}}</label>
         <mat-form-field appearance="fill" class="w-100">
-          <mat-select [ngClass]="{
+          <mat-select
+          [ngClass]="{
             'is-valid': Validarform('giroempresa').error == false,
             'is-invalid': Validarform('giroempresa').error == true
            }"
            formControlName="giroempresa">
             <mat-option >
                 Selecciona el giro de la empresa
+            </mat-option>
+            <mat-option *ngFor="let giro of giro" [value]="giro.Actividad_Empresarial">
+              {{giro.Actividad_Empresarial}}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -125,13 +138,17 @@
       <div class="form-group" [formGroup]="formulario">
         <label for="" class="font-weight-bold">{{Municipio}}</label>
         <mat-form-field appearance="fill" class="w-100">
-          <mat-select [ngClass]="{
+          <mat-select
+          [ngClass]="{
             'is-valid': Validarform('municipio').error == false,
             'is-invalid': Validarform('municipio').error == true
            }"
            formControlName="municipio">
             <mat-option >
                 Selecciona tu municipio
+            </mat-option>
+            <mat-option *ngFor="let municipios of municipio" [value]="municipios.Nombre_Municipio">
+              {{municipios.Nombre_Municipio}}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -145,7 +162,7 @@
   </div>
   <div class="row mt-2">
     <div class="col-12">
-      <button [disabled]="formulario.invalid" type="button" name="" id=""
+      <button [disabled]="formulario.invalid" type="submit" name="" id=""
       class="btn btn-success btn-lg btn-block">{{ButtonRegEmpresa}}
       </button>
     </div>

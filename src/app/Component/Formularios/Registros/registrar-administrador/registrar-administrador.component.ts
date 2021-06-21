@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
-import { usuarioI } from 'src/app/Interfaces/UsuarioInterface';
+import { PuestosI } from 'src/app/Interfaces/Puesto.interface';
 import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
+import { PuestosService } from 'src/app/Services/puestos.service';
 
 @Component({
   selector: 'app-registrar-administrador',
@@ -27,13 +28,14 @@ export class RegistrarAdministradorComponent implements OnInit {
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
 
   public formulario! : FormGroup;
-  public Usuario: usuarioI[] = [];
+  puesto: PuestosI[] = [];
   
   constructor(private AWMsg:MessageerrorsService, 
-    private router:Router) { }
+    private router:Router, private puestos:PuestosService) { }
 
   ngOnInit(): void {
     this.CrearFormulario();
+    this.GetPuestos();
   }
 
   public CrearFormulario():void{
@@ -97,4 +99,15 @@ export class RegistrarAdministradorComponent implements OnInit {
   public INICIO():void{
     this.router.navigate(["inicio"])
   }
+
+  GetPuestos(){
+    this.puestos.GetListPuestos().subscribe(
+      res => {
+        this.puesto = res;
+      }, err => {
+        console.log(err);
+    });
+  }
+
+  
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
-import { usuarioI } from 'src/app/Interfaces/UsuarioInterface';
-import { DataService } from 'src/app/Services/data.service';
 import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 
 @Component({
@@ -26,10 +24,8 @@ export class ModificarUsuarioComponent implements OnInit {
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
 
   public formulario! : FormGroup;
-  public Usuario: usuarioI[] = [];
   
-  constructor(private AWMsg:MessageerrorsService, 
-    private UserDB: DataService) { }
+  constructor(private AWMsg:MessageerrorsService) { }
 
   ngOnInit(): void {
     this.CrearFormulario();
