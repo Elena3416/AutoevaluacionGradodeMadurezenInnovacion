@@ -1,3 +1,4 @@
+import { InicioSesionService } from './../../../../Services/inicio-sesion.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
@@ -28,7 +29,7 @@ export class InicioSesionComponent implements OnInit {
    public formulario!: FormGroup;
  
    constructor(private AWMsgErrSrv:MessageerrorsService,
-    private router:Router) { }
+    private router:Router, private userlogin:InicioSesionService) { }
  
    ngOnInit(): void {
      this.CreateForm();
@@ -71,22 +72,12 @@ export class InicioSesionComponent implements OnInit {
    var modal: HTMLElement|null =  document.getElementById('close-modal');
    modal?.click();
   }
-
-  // public INICIO():void{
-  //   this.router.navigate(["inicio"]);
-  // }
   
   public UserRegister():void{
     this.router.navigate(["registrarusuario"]);
   }
 
-  // ResetForm(){
-  //   if(this.formulario!=null){
-  //     this.formulario.reset();
-  //     this.login = {
-  //       email: '',
-  //       password:''
-  //     }
-  //   }
-  // }
+  Login(){
+    this.router.navigate(["inicio"]);
+  }
 }

@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
-<div class="container shadow-lg p-3 mb-5 mt-5 bg-light rounded w-100">
-  <form class="form" [formGroup]="formulario">
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-light rounded w-100" *ngFor="let user of usuario">
+  <form class="form" [formGroup]="formulario" (ngSumbit)="EditarEmpresa(user)">
     <div class="row">
       <div class="col-12">
         <h1 class="display-4 text-med text-center font-weight-bold">{{ModificarUsuarios}}</h1>
@@ -155,7 +155,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <button [disabled]="formulario.invalid" type="button" name="" id=""
+        <button [disabled]="formulario.invalid" type="submit" (click)="GuardarUsuario()"
           class="btn btn-primary btn-lg btn-block">{{ButtonUpdateUsuario}}</button>
       </div>
     </div>

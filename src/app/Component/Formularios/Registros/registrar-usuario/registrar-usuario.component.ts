@@ -1,10 +1,11 @@
-import { PuestosI } from './../../../../Interfaces/Puesto.interface';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 import { UsuarioService } from 'src/app/Services/usuario.service';
+import { UsuarioI } from 'src/app/Interfaces/Usuario.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -22,10 +23,10 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   public formulario!: FormGroup;
   log: boolean = false;
-  puesto: PuestosI[] = [];
+  users:any;
 
-  constructor(private AWMsgErrSrv:MessageerrorsService, private Usuario:UsuarioService,
-    private router:Router) { }
+  constructor(private AWMsgErrSrv:MessageerrorsService, private UsuarioService:UsuarioService,
+    private router:Router, private toastr:ToastrService) { }
 
   ngOnInit() {
     this.CreateForm();
@@ -55,15 +56,16 @@ export class RegistrarUsuarioComponent implements OnInit {
     return this.AWMsgErrSrv.ErrorMessage(this.formulario.controls[control].errors);
   }
 
-    // Inicio(){
-    //   this.router.navigate(["inicio"]);
-    // }
-
-    registrarusuario(){
-      const usuario:any = {
-        email:this.formulario.get("nombreusuario")?.value,
-        password:this.formulario.get("password")?.value
-      }
-      console.log(usuario);
-    }
+  Registrarusuarioempleado(){
+   const empleado: any = {
+      nombreusuario: this.formulario.get("nombreusuario")?.value,
+      password: this.formulario.get("password")?.value,
+   }
+    this.UsuarioService.SaveUsuario(empleado).subscribe(data => {
+      this.users = data;  
+      this.toastr.success("Registro","Usuario Registrado Exitosamente");   
+    }, error => {
+      console.log(error)
+    });
+    } 
 }

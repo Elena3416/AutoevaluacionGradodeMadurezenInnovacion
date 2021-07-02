@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { EmpresaI } from './../../../../Interfaces/EmpresaInterface';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MessageerrorsService } from '../../../../Services/messageerrors.service';
@@ -13,6 +15,7 @@ import { EstadosService } from "src/app/Services/estados.service";
 import { MunicipioService } from "src/app/Services/municipio.service";
 import { ClusterService } from "src/app/Services/cluster.service";
 import { GiroService } from "src/app/Services/giro.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registrar-empresa',
@@ -41,12 +44,13 @@ export class RegistrarEmpresaComponent implements OnInit {
   municipio:MunicipioI[] = [];
   cluster:ClusterI[] = [];
   giro:GiroI[] = [];
-  ListaEmpresa :any[] =[];
+  empresa :any;
 
   constructor(private AWMsgError:MessageerrorsService, 
     private empresaservices:EmpresaService, private paisesservices:PaisService, 
     private estadosmexservices:EstadosService, private municipioservices: MunicipioService, 
-    private clustersservices:ClusterService, private giroservices:GiroService) {
+    private clustersservices:ClusterService, private giroservices:GiroService, 
+    private router:Router, private toastr: ToastrService) {
    }
 
   ngOnInit(): void {
@@ -143,20 +147,20 @@ export class RegistrarEmpresaComponent implements OnInit {
   }
 
   RegistrarEmpresa(){
-    let formempresa = this.formulario.value;
-    this.empresaservices.SaveEmpresa(formempresa).subscribe(
-      res => {
-      this.formulario.get("rfc")
-      this.formulario.get("cluster"),
-      this.formulario.get("giro"),
-      this.formulario.get("pais"),
-      this.formulario.get("estado"),
-      this.formulario.get("municipio")
-    }, err => console.log(err)
-    )
-  this.ListaEmpresa.push(formempresa);
-  console.log(this.ListaEmpresa);
-  
-}     
+      const empresaria: any = {
+        rfc: this.formulario.get("rfc")?.value,
+        cluster: this.formulario.get("cluster")?.value,
+        giroempresa: this.formulario.get("giroempresa")?.value,
+        pais: this.formulario.get("pais")?.value,
+        estado: this.formulario.get("estado")?.value,
+        municipio: this.formulario.get("municipio")?.value
+      }
+      this.empresaservices.SaveEmpresa(empresaria).subscribe(data => {
+        this.empresa = data;
+        this.toastr.success("Registro Empresa", "Empresa Registrada Existosamente");    
+        this.formulario.reset();
+      }, error => {
+        console.log(error)
+      });
+    } 
   }
-

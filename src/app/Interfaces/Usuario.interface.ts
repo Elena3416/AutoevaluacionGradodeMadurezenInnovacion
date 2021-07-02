@@ -3,12 +3,9 @@ export interface UsuarioI{
     Nombres: string;
     Apellido_Paterno:string;
     Apellido_Materno:string;
-    Fecha_Nacimiento:string;
-    Telefono_Contacto:number;
+    Fecha_Nacimiento:Date;
+    Telefono_Contacto:bigint;
     Correo_Electronico:string;
     Contrasena:string;
-    Estado_Usuario: boolean;
-    Tipo_Usuario:string;
-    Nombre_Usuario: string;
-    FK_Id_Puesto:string;
+    Id_Puesto:number;
 }

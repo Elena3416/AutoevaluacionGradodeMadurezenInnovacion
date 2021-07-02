@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <div class="container shadow-lg p-3 mb-5 mt-5 bg-light rounded w-100">
-    <form class="form" [formGroup]="formulario" (onSubmit)="RegistrarEmpresa()">
+    <form class="form" [formGroup]="formulario" (ngSubmit)="RegistrarEmpresa()">
     <div class="row">
       <div class="col-12">
         <h1 class="display-4 text-med text-center font-weight-bold">{{RegEmpresa}}</h1>
@@ -162,7 +162,7 @@
   </div>
   <div class="row mt-2">
     <div class="col-12">
-      <button [disabled]="formulario.invalid" type="submit" name="" id=""
+      <button type="submit" [disabled]="formulario.invalid" name="" id=""
       class="btn btn-success btn-lg btn-block">{{ButtonRegEmpresa}}
       </button>
     </div>

@@ -2,6 +2,7 @@ import { MessageerrorsService } from '../../../../Services/messageerrors.service
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cambio-password',
@@ -19,7 +20,7 @@ export class CambioPasswordComponent implements OnInit {
   public formulario!: FormGroup;
   log: boolean = false;
 
-  constructor(private AWMsgErrSrv:MessageerrorsService) { }
+  constructor(private AWMsgErrSrv:MessageerrorsService, private router:Router) { }
 
   ngOnInit() {
     this.CreateForm();
@@ -43,5 +44,9 @@ export class CambioPasswordComponent implements OnInit {
     if(!this.formulario.controls[control].touched) return {message:undefined};
 
     return this.AWMsgErrSrv.ErrorMessage(this.formulario.controls[control].errors);
+  }
+  
+  NewPassword(){
+    this.router.navigate(["newpassword"]);
   }
 }

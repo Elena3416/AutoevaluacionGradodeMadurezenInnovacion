@@ -3,6 +3,8 @@ import { MessageerrorsService } from './../../../../Services/messageerrors.servi
 import { FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { ToastrService } from 'ngx-toastr';
+import { UsuarioService } from 'src/app/Services/usuario.service';
 
 @Component({
   selector: 'app-new-password',
@@ -18,9 +20,10 @@ export class NewPasswordComponent implements OnInit {
   public BtnSavePassword:string = "Guardar Nueva Contraseña";
   public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
   public formulario!:FormGroup;
+  password:any;
 
-  constructor(private AWMgsError:MessageerrorsService, 
-    private router:Router) { }
+  constructor(private AWMgsError:MessageerrorsService, private UsuarioService:UsuarioService,
+    private router:Router, private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.Createform();
@@ -50,4 +53,17 @@ export class NewPasswordComponent implements OnInit {
   public MenuLogin():void{
     this.router.navigate(["iniciarsesion"]);
   }
+
+   Registrarusuarioempleado(){
+   const changepassword: any = {
+      password: this.formulario.get("confirmarpassword")?.value,
+      confirmarpassword: this.formulario.get("confirmarpassword")?.value,
+   }
+    this.UsuarioService.SaveUsuario(changepassword).subscribe(data => {
+      this.password = data;  
+      this.toastr.success("Cambio Contraseña","Cambio Contraseña Exitosamente");   
+    }, error => {
+      console.log(error)
+    });
+}
 }

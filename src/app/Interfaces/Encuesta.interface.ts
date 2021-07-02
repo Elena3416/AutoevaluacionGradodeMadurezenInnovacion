@@ -3,6 +3,5 @@ export interface EncuestaI{
     Nombre_Encuesta:string;
     Fecha_Vigente: Date;
     Fecha_Registro: Date;
-    Estado_Encuesta:boolean;
     FK_Id_Usuario: number;
 }

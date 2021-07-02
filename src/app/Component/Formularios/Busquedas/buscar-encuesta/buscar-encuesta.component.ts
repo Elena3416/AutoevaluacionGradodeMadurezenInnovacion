@@ -1,8 +1,9 @@
+import { ToastrService } from 'ngx-toastr';
+import { UsuarioI } from 'src/app/Interfaces/Usuario.interface';
+import { UsuarioService } from 'src/app/Services/usuario.service';
+import { EncuestaService } from './../../../../Services/encuesta.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { RxwebValidators } from '@rxweb/reactive-form-validators';
-import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 
 @Component({
   selector: 'app-buscar-encuesta',
@@ -12,45 +13,50 @@ import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 export class BuscarEncuestaComponent implements OnInit {
 
   public Titulo:string = "Búsqueda Encuesta";
-  public Mensaje:string = "En este apartado, podrás buscar la encuesta y modificarla, se buscará por el número de versión de encuesta.";
-  public Etiqueta:string = "Número de versión por encuesta: *"
-  public btnBuscarEncuesta:string = "Buscar Encuesta";
-  public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
-  public formulario! : FormGroup;
+  public Mensaje:string = "En este apartado, podrás buscar todas las encuestas ya realizadas en la plataforma.";
+  public btnBuscarEncuesta:string = "Buscar Encuestas";
+  Usuariointerface:UsuarioI[] = [];
+  encuesta:any; 
 
-  constructor(private AWMsgErrors:MessageerrorsService, private router:Router) { }
+  constructor(private router:Router, private encuestasservices:EncuestaService,
+    private usuarioservices:UsuarioService, private toastr:ToastrService) { }
 
   ngOnInit(): void {
-    this.CrearForm();
-  }
-
-  public CrearForm():void {
-    this.formulario = new FormGroup({
-
-      numeroencuesta: new FormControl(null,
-        [
-          RxwebValidators.required(),
-          RxwebValidators.digit()
-      ])
-    });
-  }
-
-  public Validarform(control:string){
-    if(!this.formulario.controls[control].touched) return { error: undefined};
-    if(!this.formulario.controls[control].touched) return { message: undefined};
-
-    return this.AWMsgErrors.ErrorMessage(this.formulario.controls[control].errors);
+    this.GetUsuario();
   }
 
   public updatesurvey():void {
     this.router.navigate(["modificarencuesta"]);
   }
 
-  public deletesurvey(): void {
-    this.router.navigate(["eliminarencuesta"]);
+  public GetUsuario(){
+    this.usuarioservices.GetListUsuario().subscribe(
+      res => {
+        this.Usuariointerface = res;
+      }, error => {
+        console.log(error);
+      }
+    );
   }
 
-  BuscarEncuesta(){
-    
+  public ObtenerEncuesta(){
+      this.encuestasservices.GetListEncuesta().subscribe(
+        (value) => {
+          this.encuesta = value;
+        }, error => {
+          console.log(error);
+        }
+      );
   }
+
+    public EliminarEmpresa(id:number){
+    this.encuestasservices.DeleteEncuesta(id).subscribe( 
+      data => {
+        this.toastr.success("La empresa fue eliminada", "Empresa Eliminada");
+        this.ObtenerEncuesta();
+      },err =>{
+        console.log(err);
+      } 
+    );
+}
 }

@@ -1,8 +1,7 @@
+import { ToastrService } from 'ngx-toastr';
+import { UsuarioService } from 'src/app/Services/usuario.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { RxwebValidators } from '@rxweb/reactive-form-validators';
-import { MessageerrorsService } from 'src/app/Services/messageerrors.service';
 import { PuestosService } from 'src/app/Services/puestos.service';
 import { PuestosI } from 'src/app/Interfaces/Puesto.interface';
 
@@ -14,45 +13,21 @@ import { PuestosI } from 'src/app/Interfaces/Puesto.interface';
 export class BuscarUsuarioComponent implements OnInit {
 
   public Titulo: string = "Búsqueda Usuario";
-  public Mensaje: string = "En este apartado, podrás buscar tu información como usuario y tendrás la oportunidad de modificar tus datos."
-  public buscarusuario: string = "Buscar Usuario";
-  public UserName: string = "Nombre de usuario: *";
-  public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
-  public formulario!: FormGroup;
-  ListaUsuario :any[] = [];
-  puestos: PuestosI[] = [];
+  public Mensaje: string = "En este apartado, podrás buscar la información de todos los usuarios ya registrados en la plataforma.";
+  public buscarusuario = "Buscar Usuarios";
 
-  constructor(private AWMsgErrors:MessageerrorsService, private router:Router,
-    private puesto:PuestosService) { }
+  puestos: PuestosI[] = [];
+  usuario:any;
+
+  constructor( private router:Router, private toastr:ToastrService,
+    private puesto:PuestosService, private usuarioservices:UsuarioService) { }
 
   ngOnInit(): void {
-    this.CrearForm();
-  }
-
-  public CrearForm():void {
-    this.formulario = new FormGroup({
-
-      nombreusuario: new FormControl(null,
-        [
-          RxwebValidators.required(),
-          RxwebValidators.pattern({ expression: { onlyAlpha: /^[A-Za-zÁÉÍÓÚáéíóúñÑ]+$/ } }),
-          RxwebValidators.maxLength({ value: 25 })])
-    });
-  }
-
-  public Validarform(control:string){
-    if(!this.formulario.controls[control].touched) return { error: undefined};
-    if(!this.formulario.controls[control].touched) return { message: undefined};
-
-    return this.AWMsgErrors.ErrorMessage(this.formulario.controls[control].errors);
+    this.getPuestos();
   }
 
   public userupdate():void{
     this.router.navigate(["modificarusuario"]);
-  }
-
-  public userdelete():void{
-    this.router.navigate(["eliminarusuario"]);
   }
 
   getPuestos(){
@@ -64,4 +39,24 @@ export class BuscarUsuarioComponent implements OnInit {
       }
     );
   }
-}
+
+  public ObtenerUsuario(){
+    this.usuarioservices.GetListUsuario().subscribe(
+      (value) => {
+        this.usuario = value;
+      }, error => {
+        console.log(error);
+      }
+    );
+  }
+
+  public EliminarUsuario(id:number){
+    this.usuarioservices.DeleteUsuario(id).subscribe( 
+      data => {
+        this.toastr.success("La empresa fue eliminada", "Empresa Eliminada");
+        this.ObtenerUsuario();
+      },err =>{
+        console.log(err);
+      } 
+    )}
+  }

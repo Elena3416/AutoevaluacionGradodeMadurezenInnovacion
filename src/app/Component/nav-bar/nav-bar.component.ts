@@ -1,5 +1,8 @@
+import { UsuarioService } from './../../Services/usuario.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { PuestosI } from 'src/app/Interfaces/Puesto.interface';
+import { PuestosService } from 'src/app/Services/puestos.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -23,14 +26,10 @@ export class NavBarComponent implements OnInit {
   public MiCuenta:string = "Mi cuenta";
   public Cerrarsesion:string = "Cerrar Sesión"; 
 
-  constructor(
-
-    private router:Router
-  ) { }
+  constructor(private router:Router) { }
   
-  nombre: string = " ";
-  tipo_user: string = " ";
-  admin: boolean = true;
+  users : any;
+  puesto: PuestosI[] = [];
   
   ngOnInit() {
     // this.getStrings();

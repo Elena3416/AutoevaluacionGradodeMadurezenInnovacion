@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MessageerrorsService } from '../../../../Services/messageerrors.service';
@@ -41,11 +42,14 @@ export class ModificarEmpresaComponent implements OnInit {
    municipio:MunicipioI[] = [];
    cluster:ClusterI[] = [];
    giro:GiroI[] = [];
+   empresas: any;
+   id:number | undefined;
  
   constructor(private AWMsgError:MessageerrorsService, 
     private empresaservices:EmpresaService, private paisesservices:PaisService, 
     private estadosmexservices:EstadosService, private municipioservices: MunicipioService, 
-    private clustersservices:ClusterService, private giroservices:GiroService) {
+    private clustersservices:ClusterService, private giroservices:GiroService,
+    private toastr:ToastrService) {
     }
  
    ngOnInit(): void {
@@ -154,10 +158,57 @@ export class ModificarEmpresaComponent implements OnInit {
     this.empresaservices.GetListEmpresa().subscribe(
       data => {
         console.log(data);
-        this.empresaservices = data;
+        this.empresas = data;
       }, error => {
         console.log(error);
       }
     );
+  }
+
+  GuardarEmpresa(){
+    const empresaria: any = {
+      rfc: this.formulario.get("rfc")?.value,
+      cluster: this.formulario.get("cluster")?.value,
+      giroempresa: this.formulario.get("giroempresa")?.value,
+      pais: this.formulario.get("pais")?.value,
+      estado: this.formulario.get("estado")?.value,
+      municipio: this.formulario.get("municipio")?.value
+    }
+
+    if(this.id == undefined){
+      //Agregar tarjeta
+      this.empresaservices.SaveEmpresa(empresaria).subscribe(data => {
+      this.toastr.success("La empresa fue registrada con exito", "Empresa Guardada"); 
+      this.ObtenerEmpresa(); 
+      this.formulario.reset();
+    }, error => {
+      console.log(error)
+    });
+    } else{
+      //Editar empresa
+      this.empresaservices.UpdateEmpresa(this.id,empresaria).subscribe(
+        data => {
+          this.formulario.reset();
+          this.id = undefined;
+          this.toastr.info("La empresa fue modificada con exito", "Empresa Modificada");
+          this.ObtenerEmpresa();
+        }, err => {
+          console.log(err);         
+        })
+    }
+  } 
+
+  EditarEmpresa(empresa:any){
+    this.id = empresa.id;
+
+    //Para llenar la info al formulario
+    this.formulario.patchValue({
+      rfc: empresa.rfc,
+      cluster: empresa.cluster,
+      giroempresa: empresa.giroempresa,
+      pais: empresa.pais,
+      estado: empresa.estado,
+      municipio: empresa.municipio
+    })
   }
 }

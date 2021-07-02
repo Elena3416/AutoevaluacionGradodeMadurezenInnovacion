@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <div class="container shadow-lg p-3 mb-5 mt-5 bg-light rounded w-100">
-  <form class="form" [formGroup]="formulario">
+  <form class="form" [formGroup]="formulario" (ngSubmit)="RegistrarUsuario()">
     <div class="row">
       <div class="col-12">
         <h1 class="display-4 text-med text-center font-weight-bold">{{RegistrarUsuarios}}</h1>
@@ -77,7 +77,7 @@
         <div class="form-group" [formGroup]="formulario">
           <label for="" class="font-weight-bold">{{Phone}}</label>
           <mat-form-field class="w-100">
-            <input matInput type="phone" [ngClass]="{
+            <input matInput type="number" [ngClass]="{
                 'is-valid': Validarform('telefono').error == false,
                 'is-invalid': Validarform('telefono').error == true
             }" formControlName="telefono">
@@ -144,6 +144,9 @@
               <mat-option>
                 Selecciona la empresa a la que perteneces
               </mat-option>
+              <mat-option *ngFor="let puestos of puesto" [value]="puestos.Nombre_Puesto">
+                {{puestos.Nombre_Puesto}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
           <div *ngIf="Validarform('puestopertenece').error" class="invalid-feedback d-block mb-3 text-center"
@@ -155,8 +158,8 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <button [disabled]="formulario.invalid" type="button" name="" id=""
-          class="btn btn-primary btn-lg btn-block">{{BtnRegistroadmon}}</button>
+        <button type="submit" [disabled]="formulario.invalid"
+          class="btn btn-primary btn-lg btn-block" >{{BtnRegistroadmon}}</button>
       </div>
     </div>
   </form>

@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <div class="container shadow-lg p-3 mb-5 mt-5 bg-light rounded w-100">
-    <form action="" [formGroup]="formulario" (ngSubmit)="ObtenerEmpresa()">
+    <form action="" (ngSubmit)="ObtenerEmpresa()">
         <div class="row">
             <div class="col-12">
                 <h1 class="display-4 text-med text-center font-weight-bold">{{Titulo}}</h1>
@@ -12,28 +12,9 @@
                 <h3 class="text-center">{{Mensaje}}</h3>
             </div>
         </div>
-        <div class="row mt-2">
-            <div class="col-12">
-                <div class="form-group">
-                    <label for="" class="font-weight-bold">{{Etiqueta}}</label>
-                    <mat-form-field class="w-100">
-                        <input matInput type="number" [ngClass]="{
-                            'is-valid': Validarform('NumeroEmpresa').error == false,
-                            'is-invalid': Validarform('NumeroEmpresa').error == true
-                        }"
-                        formControlName="NumeroEmpresa">
-                    </mat-form-field>
-                </div>
-                <div *ngIf="Validarform('NumeroEmpresa').error"
-                class="invalid-feedback d-block mb-3 text-center"
-                style="font-size:13px; color: red;">
-                {{Validarform('NumeroEmpresa').message}}</div>
-            </div>
-                </div>
         <div class="row">
             <div class="col-12">
-                <button type="submit" [disabled]="formulario.invalid" name="" id=""
-                    class="btn btn-success btn-lg btn-block mt-2">
+                <button type="submit" class="btn btn-success btn-lg btn-block mt-2">
                     {{btnBuscarEmpresa}}
                 </button>
             </div>
@@ -54,10 +35,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let empresa of ListaEmpresa">
+                    <tr *ngFor="let empresa of empresas">
                         <th scope="row">{{empresa.Id_Empresa}}</th>
                         <td>{{empresa.RFC}}</td>
-                        <td>{{empresa.Cluster}}</td>
+                        <td>{{empresa.Clusters}}</td>
                         <td>{{empresa.Giro_Empresa}}</td>
                         <td>{{empresa.FK_Id_Pais}}</td>
                         <td>{{empresa.FK_Id_Estado}}</td>
@@ -67,85 +48,12 @@
                                 (click)="updatecompany()">Modificar</button>
                         </td>
                         <td>
-                            <button type="button" name="" id="" class="btn btn-danger btn-sm btn-block"
-                                (click)="deletecompany()">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr *ngFor="let empresa of ListaEmpresa">
-                        <th scope="row">{{empresa.Id_Empresa}}</th>
-                        <td>{{empresa.RFC}}</td>
-                        <td>{{empresa.Cluster}}</td>
-                        <td>{{empresa.Giro_Empresa}}</td>
-                        <td>{{empresa.FK_Id_Pais}}</td>
-                        <td>{{empresa.FK_Id_Estado}}</td>
-                        <td>{{empresa.FK_Id_Municipio}}</td>
-                        <td>
-                            <button type="button" name="" id="" class="btn btn-warning btn-sm btn-block"
-                                (click)="updatecompany()">Modificar</button>
-                        </td>
-                        <td>
-                            <button type="button" name="" id="" class="btn btn-danger btn-sm btn-block"
-                                (click)="deletecompany()">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr *ngFor="let empresa of ListaEmpresa">
-                        <th scope="row">{{empresa.Id_Empresa}}</th>
-                        <td>{{empresa.RFC}}</td>
-                        <td>{{empresa.Cluster}}</td>
-                        <td>{{empresa.Giro_Empresa}}</td>
-                        <td>{{empresa.FK_Id_Pais}}</td>
-                        <td>{{empresa.FK_Id_Estado}}</td>
-                        <td>{{empresa.FK_Id_Municipio}}</td>
-                        <td>
-                            <button type="button" name="" id="" class="btn btn-warning btn-sm btn-block"
-                                (click)="updatecompany()">Modificar</button>
-                        </td>
-                        <td>
-                            <button type="button" name="" id="" class="btn btn-danger btn-sm btn-block"
-                                (click)="deletecompany()">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr *ngFor="let empresa of ListaEmpresa">
-                        <th scope="row">{{empresa.Id_Empresa}}</th>
-                        <td>{{empresa.RFC}}</td>
-                        <td>{{empresa.Cluster}}</td>
-                        <td>{{empresa.Giro_Empresa}}</td>
-                        <td>{{empresa.FK_Id_Pais}}</td>
-                        <td>{{empresa.FK_Id_Estado}}</td>
-                        <td>{{empresa.FK_Id_Municipio}}</td>
-                        <td>
-                            <button type="button" name="" id="" class="btn btn-warning btn-sm btn-block"
-                                (click)="updatecompany()">Modificar</button>
-                        </td>
-                        <td>
-                            <button type="button" name="" id="" class="btn btn-danger btn-sm btn-block"
-                                (click)="deletecompany()">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr *ngFor="let empresa of ListaEmpresa">
-                        <th scope="row">{{empresa.Id_Empresa}}</th>
-                        <td>{{empresa.RFC}}</td>
-                        <td>{{empresa.Cluster}}</td>
-                        <td>{{empresa.Giro_Empresa}}</td>
-                        <td>{{empresa.FK_Id_Pais}}</td>
-                        <td>{{empresa.FK_Id_Estado}}</td>
-                        <td>{{empresa.FK_Id_Municipio}}</td>
-                        <td>
-                            <button type="button" name="" id="" class="btn btn-warning btn-sm btn-block"
-                                (click)="updatecompany()">Modificar</button>
-                        </td>
-                        <td>
-                            <button type="button" name="" id="" class="btn btn-danger btn-sm btn-block"
-                                (click)="deletecompany()">Eliminar</button>
+                            <button type="submit" name="" id="" class="btn btn-danger btn-sm btn-block"
+                            (click)="EliminarEmpresa()" >Eliminar</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <p id="texto">{{parrafo1}}</p>
         </div>
     </div>
 </div>

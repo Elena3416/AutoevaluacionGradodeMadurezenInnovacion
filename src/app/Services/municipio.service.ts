@@ -1,6 +1,8 @@
+import { MunicipioI } from './../Interfaces/Municipios.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

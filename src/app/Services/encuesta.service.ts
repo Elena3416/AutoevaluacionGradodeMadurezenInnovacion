@@ -24,7 +24,7 @@ export class EncuestaService {
     return this.http.delete(this.Url + this.ApiEncuestas + id);
   }
 
-  UpdateEncuesta(id:number):Observable<any>{
-    return this.http.put(this.Url + this.ApiEncuestas, id);
+   UpdateEncuesta(id:number, encuesta:any):Observable<any>{
+    return this.http.put(this.Url + this.ApiEncuestas, id, encuesta);
   }
 }

@@ -3,8 +3,6 @@ import { RegistrarAdministradorComponent } from './app/Component/Formularios/Reg
 import { RegistrarUsuarioComponent } from './app/Component/Formularios/Registros/registrar-usuario/registrar-usuario.component';
 import { MiCuentaComponent } from './app/Component/Cuenta/mi-cuenta/mi-cuenta.component';
 import { InicioComponent } from './app/Component/inicio/inicio.component';
-import { EliminarUsuarioComponent } from './app/Component/Formularios/Eliminar/eliminar-usuario/eliminar-usuario.component';
-import { EliminarEmpresaComponent } from './app/Component/Formularios/Eliminar/eliminar-empresa/eliminar-empresa.component';
 import { BuscarUsuarioComponent } from './app/Component/Formularios/Busquedas/buscar-usuario/buscar-usuario.component';
 import { ModificarEmpresaComponent } from './app/Component/Formularios/Modificar/modificar-empresa/modificar-empresa.component';
 import { RegistrarEmpresaComponent } from './app/Component/Formularios/Registros/registrar-empresa/registrar-empresa.component';
@@ -18,7 +16,6 @@ import { NavBarComponent } from './app/Component/nav-bar/nav-bar.component';
 import { CambioPasswordComponent } from './app/Component/Formularios/Passwords/cambio-password/cambio-password.component';
 import { PaginaInicialComponent } from './app/Component/pagina-inicial/pagina-inicial.component';
 import { BuscarEmpresaComponent } from './app/Component/Formularios/Busquedas/buscar-empresa/buscar-empresa.component';
-import { EliminarEncuestaComponent } from './app/Component/Formularios/Eliminar/eliminar-encuesta/eliminar-encuesta.component';
 
 import { Routes, RouterModule } from '@angular/router';
 
@@ -34,15 +31,12 @@ const Rutas: Routes = [
     { path: 'registrarusuario', component: RegistrarUsuarioComponent},
     { path: 'modificarusuario', component:ModificarUsuarioComponent},
     { path: 'busquedausuario',  component:BuscarUsuarioComponent},
-    { path: 'eliminarusuario', component:EliminarUsuarioComponent},
     { path: 'registrarempresa', component:RegistrarEmpresaComponent},
     { path: 'busquedaempresa', component:BuscarEmpresaComponent},
     { path: 'modificarempresa', component:ModificarEmpresaComponent},
-    { path: 'eliminarempresa', component:EliminarEmpresaComponent},
     { path: 'registrarencuesta', component:EncuestasComponent},
     { path: 'busquedaencuesta', component:BuscarEncuestaComponent},
     { path: 'modificarencuesta', component:ModificarEncuestaComponent},
-    { path: 'eliminarencuesta', component:EliminarEncuestaComponent},
     { path:'cambiarpassword', component:CambioPasswordComponent},
     { path:'newpassword', component:NewPasswordComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'paginainicial'}

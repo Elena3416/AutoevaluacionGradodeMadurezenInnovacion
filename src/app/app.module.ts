@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 //Rutas
 import { APP_ROUTES } from "./../app.routes";
@@ -31,9 +33,6 @@ import { FooterComponent } from './Component/footer/footer.component';
 import { BuscarEmpresaComponent } from './Component/Formularios/Busquedas/buscar-empresa/buscar-empresa.component';
 import { InicioComponent } from './Component/inicio/inicio.component';
 import { MiCuentaComponent } from './Component/Cuenta/mi-cuenta/mi-cuenta.component';
-import { EliminarUsuarioComponent } from './Component/Formularios/Eliminar/eliminar-usuario/eliminar-usuario.component';
-import { EliminarEncuestaComponent } from './Component/Formularios/Eliminar/eliminar-encuesta/eliminar-encuesta.component';
-import { EliminarEmpresaComponent } from './Component/Formularios/Eliminar/eliminar-empresa/eliminar-empresa.component';
 import { RegistrarAdministradorComponent } from './Component/Formularios/Registros/registrar-administrador/registrar-administrador.component';
 import { RegistrarUsuarioComponent } from './Component/Formularios/Registros/registrar-usuario/registrar-usuario.component';
 
@@ -71,9 +70,6 @@ import { EditarCuentaComponent } from './Component/Cuenta/editar-cuenta/editar-c
     BuscarEmpresaComponent,
     InicioComponent,
     MiCuentaComponent,
-    EliminarUsuarioComponent,
-    EliminarEncuestaComponent,
-    EliminarEmpresaComponent,
     RegistrarAdministradorComponent,
     RegistrarUsuarioComponent,
     EditarCuentaComponent
@@ -91,7 +87,9 @@ import { EditarCuentaComponent } from './Component/Cuenta/editar-cuenta/editar-c
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    CommonModule,
+    ToastrModule.forRoot(), 
   ],
   providers: [],
   bootstrap: [AppComponent]

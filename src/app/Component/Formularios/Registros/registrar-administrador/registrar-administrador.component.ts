@@ -1,3 +1,5 @@
+import { UsuarioService } from './../../../../Services/usuario.service';
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -29,9 +31,11 @@ export class RegistrarAdministradorComponent implements OnInit {
 
   public formulario! : FormGroup;
   puesto: PuestosI[] = [];
+  users: any;
   
   constructor(private AWMsg:MessageerrorsService, 
-    private router:Router, private puestos:PuestosService) { }
+    private router:Router, private puestosservices:PuestosService, 
+    private usuariosservices:UsuarioService, private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.CrearFormulario();
@@ -43,19 +47,19 @@ export class RegistrarAdministradorComponent implements OnInit {
 
         nombrecompleto: new FormControl(null, [
           RxwebValidators.required(),
-          RxwebValidators.pattern({expression: {onlyAlpha: /^[A-Za-zÁÉÍÓÚáéíóúñÑ]+$/}}),
+          RxwebValidators.pattern({expression: {onlyAlpha: /^[A-Za-zÁÉÍÓÚáéíóúñÑ]+|[A-Za-zÁÉÍÓÚáéíóúñÑ]+$/}}),
           RxwebValidators.minLength({value:5}),
-          RxwebValidators.maxLength({value:30})]),
+          RxwebValidators.maxLength({value:50})]),
 
         apellidopaterno : new FormControl(null, [
           RxwebValidators.required(),
-          RxwebValidators.pattern({expression: {onlyAlpha: /^[A-Za-zÁÉÍÓÚáéíóúñÑ]+$/}}),
+          RxwebValidators.pattern({expression: {onlyAlpha: /^[A-Za-zÁÉÍÓÚáéíóúñÑ]+|[A-Za-zÁÉÍÓÚáéíóúñÑ]+$/}}),
           RxwebValidators.minLength({value:5}),
           RxwebValidators.maxLength({value:30})]),
 
         apellidomaterno: new FormControl(null, [
           RxwebValidators.required(),
-          RxwebValidators.pattern({expression: {onlyAlpha: /^[A-Za-zÁÉÍÓÚáéíóúñÑ]+$/}}),
+          RxwebValidators.pattern({expression: {onlyAlpha: /^[A-Za-zÁÉÍÓÚáéíóúñÑ]+|[A-Za-zÁÉÍÓÚáéíóúñÑ]+$/}}),
           RxwebValidators.minLength({value:5}),
           RxwebValidators.maxLength({value:30})]),
           
@@ -64,8 +68,7 @@ export class RegistrarAdministradorComponent implements OnInit {
            
          telefono: new FormControl(null, [
            RxwebValidators.required(),
-           RxwebValidators.digit(),
-           RxwebValidators.maxLength({value:10})]),
+           RxwebValidators.digit()]),
            
         correoelectronico: new FormControl(null,[
           RxwebValidators.required(),
@@ -96,12 +99,9 @@ export class RegistrarAdministradorComponent implements OnInit {
     return this.AWMsg.ErrorMessage(this.formulario.controls[control].errors);
   }
 
-  public INICIO():void{
-    this.router.navigate(["inicio"])
-  }
 
-  GetPuestos(){
-    this.puestos.GetListPuestos().subscribe(
+  public GetPuestos(){
+    this.puestosservices.GetListPuestos().subscribe(
       res => {
         this.puesto = res;
       }, err => {
@@ -109,5 +109,23 @@ export class RegistrarAdministradorComponent implements OnInit {
     });
   }
 
-  
-}
+  RegistrarUsuario(){
+    const administrador: any = {
+      nombrecompleto: this.formulario.get("nombrecompleto")?.value,
+      apellidopaterno: this.formulario.get("apellidopaterno")?.value,
+      apellidomaterno: this.formulario.get("apellidomaterno")?.value,
+      fechanacimiento: this.formulario.get("fechanacimiento")?.value,
+      telefono: this.formulario.get("telefono")?.value,
+      correoelectronico: this.formulario.get("correoelectronico")?.value,
+      password: this.formulario.get("password")?.value,
+      puestopertenece: this.formulario.get("puestopertenece")?.value
+    }
+    this.usuariosservices.SaveUsuario(administrador).subscribe(data => {
+      this.users = data;  
+      this.toastr.success("Registro","Usuario Registrado Exitosamente");   
+      this.router.navigate(["inicio"]);
+    }, error => {
+      console.log(error)
+    });
+  } 
+  }

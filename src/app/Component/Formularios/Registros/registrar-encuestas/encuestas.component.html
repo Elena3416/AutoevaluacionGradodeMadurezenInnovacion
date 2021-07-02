@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <div class="container shadow-lg p-3 mb-5 mt-5 bg-light rounded w-100 h-200">
-    <form class="form">
+    <form class="form" [formGroup]="formulario">
         <div class="row">
             <div class="col-12">
                 <h1 class="display-4 text-med text-center font-weight-bold">{{TituloEmpresas}}</h1>
@@ -19,51 +19,45 @@
         </div>
         <div class="row">
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Menos de un mes
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus1" formControlName="preguntauno">
+                        <mat-radio-button [value]="1"> Menos de un mes </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    1 a 6 meses
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus1" formControlName="preguntauno">
+                        <mat-radio-button [value]="2"> 1 a 6 meses </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    De 6 meses a 1 año
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus1" formControlName="preguntauno">
+                        <mat-radio-button [value]="3"> De 6 meses a 1 año </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    1-3 años
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus1" formControlName="preguntauno">
+                        <mat-radio-button [value]="4"> 1-3 años</mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    No estoy seguro
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus1" formControlName="preguntauno">
+                        <mat-radio-button [value]="5"> No estoy seguro </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Nunca lo he usado
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus1" formControlName="preguntauno">
+                        <mat-radio-button [value]="6" > Nunca lo he usado </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
         </div>
@@ -74,51 +68,45 @@
         </div>
         <div class="row">
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Diariamente
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus2" formControlName="preguntados">
+                        <mat-radio-button [value]="7"> Diariamente </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    2-3 veces al mes
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus2" formControlName="preguntados">
+                        <mat-radio-button [value]="8"> 2-3 veces al mes </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Una vez al mes
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus2" formControlName="preguntados">
+                        <mat-radio-button [value]="9"> Una vez al mes </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Cada 2-3 meses
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus2" formControlName="preguntados">
+                        <mat-radio-button [value]="10"> Cada 2-3 meses </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    2-3 veces al año o menos
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus2" formControlName="preguntados">
+                        <mat-radio-button [value]="11"> 2-3 veces al año o menos </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    No estoy seguro
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus2" formControlName="preguntados">
+                        <mat-radio-button [value]="12"> No estoy seguro </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
         </div>
@@ -129,51 +117,45 @@
         </div>
         <div class="row">
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Muy satisfecho
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus3" formControlName="preguntatres">
+                        <mat-radio-button [value]="13"> Muy satisfecho </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Satisfecho
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus3" formControlName="preguntatres">
+                        <mat-radio-button [value]="14"> Satisfecho </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Neutral
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus3" formControlName="preguntatres">
+                        <mat-radio-button [value]="15"> Algo </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Insatisfecho
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus3" formControlName="preguntatres">
+                        <mat-radio-button [value]="16"> Algo Satisfecho </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Muy insatisfecho
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus3" formControlName="preguntatres">
+                        <mat-radio-button [value]="17"> Insatisfecho </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    No estoy seguro
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus3" formControlName="preguntatres">
+                        <mat-radio-button [value]="18"> No estoy seguro </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
         </div>
@@ -184,51 +166,45 @@
         </div>
         <div class="row">
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Definitivamente
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus4" formControlName="preguntacuatro">
+                        <mat-radio-button [value]="19"> Definitivamente </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Probablemente
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus4" formControlName="preguntacuatro">
+                        <mat-radio-button [value]="20"> Probablemente </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    No estoy seguro
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus4" formControlName="preguntacuatro">
+                        <mat-radio-button [value]="21"> Probablemente no </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Probablemente no
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus4" formControlName="preguntacuatro">
+                        <mat-radio-button [value]="22"> No estoy seguro </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Definitivamente no
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus4" formControlName="preguntacuatro">
+                        <mat-radio-button [value]="23"> Definitivamente no </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Nunca lo he usado
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group  class="margin-left" [(ngModel)]="selectedStatus4" formControlName="preguntacuatro">
+                        <mat-radio-button [value]="24"> Nunca lo he usado </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
         </div>
@@ -238,52 +214,39 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Ya lo tenía, pero quiero reemplazarlo.
-                  </label>
+            <div class="col-3">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus5" formControlName="preguntacinco">
+                        <mat-radio-button [value]="25"> Ya lo tenía, pero quiero reemplazarlo </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus5" formControlName="preguntacinco">
+                        <mat-radio-button [value]="26"> Sirve para satisfacer una necesidad </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Sirve para satisfacer una necesidad.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus5" formControlName="preguntacinco">
+                        <mat-radio-button [value]="27"> Por razones de calidad </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Por razones de calidad.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus5" formControlName="preguntacinco">
+                        <mat-radio-button [value]="28"> Por razones durabilidad </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Por razones de durabilidad.
-                  </label>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Por el precio.
-                  </label>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Otros.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus5" formControlName="preguntacinco">
+                        <mat-radio-button [value]="29"> Por el precio </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
         </div>
@@ -294,51 +257,38 @@
         </div>
         <div class="row">
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Es muy costoso.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus6" formControlName="preguntaseis">
+                        <mat-radio-button [value]="30">Es muy costoso</mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    No lo necesito.
-                  </label>
+                    <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus6" formControlName="preguntaseis">
+                        <mat-radio-button [value]="31">No lo necesito</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus6" formControlName="preguntaseis">
+                        <mat-radio-button [value]="32"> La calidad no está a la altura de las circunstancias</mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    La calidad no está a la altura de las circunstancias.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus6" formControlName="preguntaseis">
+                        <mat-radio-button [value]="33"> No es durable </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    No es durable.
-                  </label>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Ya lo tengo.
-                  </label>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Otros.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus6" formControlName="preguntaseis">
+                        <mat-radio-button [value]="34"> Ya lo tengo </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
         </div>
@@ -348,44 +298,39 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Extremadamente probable.
-                  </label>
+            <div class="col-3">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus7" formControlName="preguntasiete">
+                        <mat-radio-button [value]="35"> Extremadamente probable </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Muy probable.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus7" formControlName="preguntasiete">
+                        <mat-radio-button [value]="36"> Muy probable </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Algo probable.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus7" formControlName="preguntasiete">
+                        <mat-radio-button [value]="37"> Algo probable </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    No es tan probable.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus7" formControlName="preguntasiete">
+                        <mat-radio-button [value]="38"> No es tan probable </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    No es probable en absoluto.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus7" formControlName="preguntasiete">
+                        <mat-radio-button [value]="39"> No es probable en absoluto </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
         </div>
@@ -396,43 +341,45 @@
         </div>
         <div class="row">
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Por correo.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus8" formControlName="preguntaocho">
+                        <mat-radio-button [value]="40"> Por correo </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Internet.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus8" formControlName="preguntaocho">
+                        <mat-radio-button [value]="41"> En la página web </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Por teléfono.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus8" formControlName="preguntaocho">
+                        <mat-radio-button [value]="42"> Por teléfono </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    En la tienda.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus8" formControlName="preguntaocho">
+                        <mat-radio-button [value]="43"> En la tienda </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="col-2">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Otros.
-                  </label>
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus8" formControlName="preguntaocho">
+                        <mat-radio-button [value]="44"> No llego el producto </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus8" formControlName="preguntaocho">
+                        <mat-radio-button [value]="45">  Otros </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
         </div>
@@ -442,28 +389,39 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-4">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Sí
-                  </label>
+            <div class="col-2">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus9" formControlName="preguntanueve">
+                        <mat-radio-button [value]="46"> Sí </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    No
-                  </label>
+            <div class="col-2">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus9" formControlName="preguntanueve">
+                        <mat-radio-button [value]="47"> Tal vez </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Ni muy fácil, ni muy difícil.
-                  </label>
+            <div class="col-2">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus9" formControlName="preguntanueve">
+                        <mat-radio-button [value]="48"> Posiblemente </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus9" formControlName="preguntanueve"> 
+                        <mat-radio-button [value]="49"> No </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus9" formControlName="preguntanueve">
+                        <mat-radio-button [value]="50"> Ni muy fácil, ni muy difícil </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
         </div>
@@ -473,34 +431,45 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-4">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    Sí.
-                  </label>
+            <div class="col-2">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus10" formControlName="preguntadiez">
+                        <mat-radio-button [value]="51"> Sí </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    No.
-                  </label>
+            <div class="col-2">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus10" formControlName="preguntadiez">
+                        <mat-radio-button [value]="52"> Tal vez </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
-                    No puedo decir.
-                  </label>
+            <div class="col-2">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus10" formControlName="preguntadiez">
+                        <mat-radio-button [value]="53"> Posiblemente </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus10" formControlName="preguntadiez">
+                        <mat-radio-button [value]="54"> No </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="col-md-12">
+                    <mat-radio-group class="margin-left" [(ngModel)]="selectedStatus10" formControlName="preguntadiez">
+                        <mat-radio-button [value]="55"> No puedo decir </mat-radio-button>
+                    </mat-radio-group>
                 </div>
             </div>
         </div>
         <div class="row mt-5">
             <div class="col-12">
-                <button type="button" name="" id="" class="btn btn-dark btn-lg btn-block">{{btnFinalizar}}</button>
+                <button type="submit" [disabled]="formulario.invalid" name="" id="" class="btn btn-dark btn-lg btn-block">{{btnFinalizar}}</button>
             </div>
         </div>
     </form>

@@ -20,15 +20,11 @@ export class EmpresaService {
     return this.http.get(this.Url + this.ApiEmpresas);
   }
 
-  GetIdEmpresa(id:number):Observable<any>{
-    return this.http.get(this.Url + this.ApiEmpresas + id);
-  }
-
   DeleteEmpresa(id:number):Observable<any>{
     return this.http.delete(this.Url + this.ApiEmpresas + id);
   }
 
-  UpdateEmpresa(id:number):Observable<any>{
-    return this.http.put(this.Url + this.ApiEmpresas, id);
+  UpdateEmpresa(id:number, empresa:any):Observable<any>{
+    return this.http.put(this.Url + this.ApiEmpresas, id, empresa);
   }
 }

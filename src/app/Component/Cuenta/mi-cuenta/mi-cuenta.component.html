@@ -27,39 +27,39 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
               <strong>{{Empresa}}</strong>
               <br>
-              <p></p>
+              <p *ngFor="let empresa of empresas">{{empresa.Clusters}}</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
               <strong>{{Registradocomo}}</strong>
               <br>
-              <p></p>
+              <p *ngFor="let usuario of users">{{usuario.Tipo_Usuario}}</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
               <strong>{{Puesto}}</strong>
               <br>
-              <p></p>
+              <p *ngFor="let puestos of puesto">{{puestos.Nombre_Puesto}}</p>
             </div>
           </div>
         </li>
         <li class="list-group-item">
           <p class="lead">{{Personales}}</p>
           <div class="row">
-            <div class="col">
+            <div class="col-lg-6 col-md-6 col-sm-12">
               <strong>{{Nombre}}</strong>
               <br>
-              <p></p>
+              <p *ngFor="let usuario of users">{{usuario.Nombres}}</p>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12">
               <strong>{{Correo}}</strong>
               <br>
-              <p></p>
+              <p *ngFor="let usuario of users">{{usuario.Correo_Electronico}}</p>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
               <strong>{{Telefono}}</strong>
               <br>
-              <p></p>
+              <p *ngFor="let usuario of users">{{usuario.Telefono_Contacto}}</p>
             </div>
           </div>
         </li>
@@ -69,30 +69,16 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
               <strong>{{Usuario}}</strong>
               <br>
-              <p></p>
+              <p *ngFor="let usuario of users">{{usuario.Nombre_Usuario}}</p>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
               <strong>{{Contrasena}}</strong>
               <br>
-              <p></p>
+              <p *ngFor="let usuario of users">{{usuario.Contrasena}}</p>
             </div>
           </div>
         </li>
       </ul>
-    </div>
-  </div>
-</div>
-<div class="container shadow-lg p-3 mb-5 mt-5 bg-white rounded w-100 m-auto">
-  <div class="row">
-    <div class="col">
-        <h1 class="lead">
-          {{Cargando}}
-        </h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-        <!-- <mat-spinner class="mx-auto"></mat-spinner> -->
     </div>
   </div>
 </div>

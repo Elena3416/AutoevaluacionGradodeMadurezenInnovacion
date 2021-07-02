@@ -1,6 +1,3 @@
-import { RxwebValidators } from '@rxweb/reactive-form-validators';
-import { FormControl, FormGroup } from '@angular/forms';
-import { MessageerrorsService } from '../../../../Services/messageerrors.service';
 import { Component, OnInit } from '@angular/core';
 import { PaisI } from "src/app/Interfaces/Pais.interface";
 import { EstadosMexicoI } from "src/app/Interfaces/EstadosMexico.interface";
@@ -13,7 +10,8 @@ import { EstadosService } from "src/app/Services/estados.service";
 import { MunicipioService } from "src/app/Services/municipio.service";
 import { ClusterService } from "src/app/Services/cluster.service";
 import { GiroService } from "src/app/Services/giro.service";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-buscar-empresa',
@@ -21,26 +19,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./buscar-empresa.component.css']
 })
 export class BuscarEmpresaComponent implements OnInit {
+  
   public Titulo:string = "Búsqueda Empresa";
-  public Mensaje:string = "En este apartado, puedes modificar algún dato de tu empresa, buscándola por el RFC de tu empresa.";
-  public Etiqueta:string = "RFC de la empresa: *"
-  public btnBuscarEmpresa:string = "Buscar Empresa";
-  public parrafo1:string = "Nota: Rellene todos los datos marcados como obligatorios *.";
-  public formulario! : FormGroup;
+  public Mensaje:string = "En este apartado, podrás buscar todas las encuestas ya realizadas en la plataforma.";
+  public btnBuscarEmpresa:string = "Buscar Empresas";
+  
   pais:PaisI[] = [];
   estado:EstadosMexicoI[] = [];
   municipio:MunicipioI[] = [];
   cluster:ClusterI[] = [];
   giro:GiroI[] = [];
-  ListaEmpresa: any[] = [];
+  empresas: any;
 
-  constructor(private AWMsgErrors:MessageerrorsService, 
-    private empresaservices:EmpresaService, private paisesservices:PaisService, 
+  constructor(private empresaservices:EmpresaService, private paisesservices:PaisService, 
     private estadosmexservices:EstadosService, private municipioservices: MunicipioService, 
-    private clustersservices:ClusterService, private giroservices:GiroService, private router:Router) { }
+    private clustersservices:ClusterService, private giroservices:GiroService, private router:Router,
+    private toastr:ToastrService, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.CrearForm();
     this.getPaises();
     this.getEstados();
     this.getMunicipios();
@@ -48,38 +44,17 @@ export class BuscarEmpresaComponent implements OnInit {
     this.getGiro();
   }
 
-  public CrearForm():void {
-    this.formulario = new FormGroup({
-
-      NumeroEmpresa: new FormControl(null,
-        [
-          RxwebValidators.required(),
-          RxwebValidators.digit()])
-    });
-  }
-
-  public Validarform(control:string){
-    if(!this.formulario.controls[control].touched) return { error: undefined};
-    if(!this.formulario.controls[control].touched) return { message: undefined};
-
-    return this.AWMsgErrors.ErrorMessage(this.formulario.controls[control].errors);
-  }
-
   public updatecompany():void{
     this.router.navigate(["modificarempresa"]);
   }
 
-  public deletecompany():void{
-    this.router.navigate(["eliminarempresa"]);
-  }
-
   public getPaises(){
     this.paisesservices.GetListPais().subscribe(
-        res => {
-         this.pais = res; 
-        }, err => {
+      res => {
+        this.pais = res;
+      }, err => {
         console.error(err);
-        }
+      }
     );
   }
 
@@ -87,7 +62,7 @@ export class BuscarEmpresaComponent implements OnInit {
     //manda llamar al metodo del service to print the answer o el error si existe un error
     this.estadosmexservices.GetListEstado().subscribe(
       res => {
-        this.estado = res;
+        this.cluster = res;
       }, err => {
         console.error(err);
       }
@@ -97,7 +72,7 @@ export class BuscarEmpresaComponent implements OnInit {
   public getMunicipios(){
     this.municipioservices.GetListMunicipio().subscribe(
       res => {
-        this.municipio = res;
+        this.cluster = res;
       }, err => {
         console.error(err);
       }
@@ -126,12 +101,21 @@ export class BuscarEmpresaComponent implements OnInit {
 
   public ObtenerEmpresa(){
     this.empresaservices.GetListEmpresa().subscribe(
-      data => {
-        console.log(data);
-        this.empresaservices = data;
+      (value) => {
+        this.empresas = value;
       }, error => {
         console.log(error);
       }
+    );
+  }
+  public EliminarEmpresa(){
+    this.empresaservices.DeleteEmpresa(+this.activatedRoute.snapshot.paramMap.get('id')!).subscribe( 
+      data => {
+        this.toastr.success("La empresa fue eliminada", "Empresa Eliminada");
+        this.ObtenerEmpresa();
+      },err =>{
+        console.log(err);
+      } 
     );
   }
 }

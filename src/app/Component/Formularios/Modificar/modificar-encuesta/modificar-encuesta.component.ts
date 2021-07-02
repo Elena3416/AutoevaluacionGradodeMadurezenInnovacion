@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-modificar-encuesta',
@@ -22,15 +22,48 @@ export class ModificarEncuestaComponent implements OnInit {
   public pregunta9:string = "9-.¿Fue fácil el proceso de transacción?";
   public pregunta10:string = "10.-¿Estarías dispuesto a volver con nosotros si mejoramos las áreas con las que no estabas satisfecho?"
 
-  public formulario!:FormGroup;
+  selectedStatus1: number = 1;
+  selectedStatus2: number = 7;
+  selectedStatus3: number = 13;
+  selectedStatus4: number = 19;
+  selectedStatus5: number = 25;
+  selectedStatus6: number = 30;
+  selectedStatus7: number = 35;
+  selectedStatus8: number = 40;
+  selectedStatus9: number = 46;
+  selectedStatus10: number = 51;
 
+  public formulario!: FormGroup;
 
-  constructor(fb: FormBuilder) {
-  this.formulario = fb.group({
-    pregunta1: ['', Validators.required]
-  });
-}
+  constructor() { }
 
   ngOnInit(): void {
+    this.PrimeraPregunta();
   }
+
+  public PrimeraPregunta(): void {
+    this.formulario = new FormGroup({
+
+      preguntauno: new FormControl(),
+      preguntados: new FormControl(),
+      preguntatres: new FormControl(),
+      preguntacuatro: new FormControl(),
+      preguntacinco: new FormControl(),
+      preguntaseis: new FormControl(),
+      preguntasiete: new FormControl(),
+      preguntaocho: new FormControl(),
+      preguntanueve: new FormControl(),
+      preguntadiez: new FormControl(),
+    });
+    this.selectedStatus1 = 0;
+    this.selectedStatus2 = 0;
+    this.selectedStatus3 = 0;
+    this.selectedStatus4 = 0;
+    this.selectedStatus5 = 0;
+    this.selectedStatus6 = 0;
+    this.selectedStatus7 = 0;
+    this.selectedStatus8 = 0;
+    this.selectedStatus9 = 0;
+    this.selectedStatus10 = 0;
+}
 }
